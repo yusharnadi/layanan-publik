@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndicatorPostRequest;
 use App\Services\AspectService;
-use Illuminate\Http\Request;
 use App\Services\IndicatorService;
 use Illuminate\Support\Facades\Log;
 
@@ -84,5 +83,22 @@ class IndicatorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function delete(int $id)
+    {
+        try {
+            if ($this->indicatorService->findById($id) == null) {
+                throw new \Exception("Indicator not found.");
+            }
+
+            $this->indicatorService->delete($id);
+
+            return redirect()->route('indicator.index')->with('message', "Berhasil menghapus indikator");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ["indicator_id" => $id]);
+
+            return redirect()->route('indicator.index')->with('error', "Gagal menghapus indikator");
+        }
     }
 }

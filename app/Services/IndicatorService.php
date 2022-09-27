@@ -29,4 +29,9 @@ class IndicatorService
     {
         return Indicator::where('indicator_id', $id)->update($data);
     }
+
+    public function delete(int $id)
+    {
+        return Indicator::destroy($id);
+    }
 }
