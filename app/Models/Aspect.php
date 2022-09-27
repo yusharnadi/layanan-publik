@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Aspect extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = "aspect_id";
+    protected $guarded = [];
+    public $timestamps = false;
 }
