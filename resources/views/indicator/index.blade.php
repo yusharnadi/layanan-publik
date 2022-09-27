@@ -19,6 +19,7 @@
                 <th>Aspect</th>
                 <th>Kode Indikator</th>
                 <th>Indikator</th>
+                {{-- <th>Deskripsi</th> --}}
                 <th>Visibilitas</th>
                 <th style="width: 40px;">action</th>
               </tr>
@@ -30,7 +31,7 @@
                     <td>{{$indicator->aspect_name}}</td>
                     <td>{{$indicator->indicator_code}}</td>
                     <td>{{$indicator->indicator_name}}</td>
-                    {{-- <td>{{$indicator->indicator_description}}</td> --}}
+                    {{-- <td>{!!$indicator->indicator_description !!}</td> --}}
                     <td>{!!$indicator->indicator_visibility == 1 ? '<span class="badge badge-warning">Private</span>':'<span class="badge badge-success">Publik</span>' !!}</td>
                     <td>
                         <a href="{{route('indicator.edit', $indicator->indicator_id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>

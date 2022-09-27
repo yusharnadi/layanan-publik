@@ -9,5 +9,6 @@ class Indicator extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $primaryKey = 'indicator_id';
     public $timestamps = false;
 }

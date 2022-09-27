@@ -19,4 +19,14 @@ class IndicatorService
     {
         return Indicator::create($data);
     }
+
+    public function findById(int $id)
+    {
+        return Indicator::find($id);
+    }
+
+    public function update(array $data, int $id)
+    {
+        return Indicator::where('indicator_id', $id)->update($data);
+    }
 }
