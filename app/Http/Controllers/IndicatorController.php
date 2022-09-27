@@ -31,9 +31,8 @@ class IndicatorController extends Controller
     public function store(IndicatorPostRequest $request)
     {
         try {
-            $validated = $request->safe()->except(['_token']);
 
-            $this->indicatorService->insert($validated);
+            $this->indicatorService->insert($request->safe()->except(['_token']));
 
             return redirect()->route('indicator.index')->with('message', "Berhasil menambahkan indikator");
         } catch (\Exception $th) {
