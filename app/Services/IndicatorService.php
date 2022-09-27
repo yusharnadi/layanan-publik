@@ -15,22 +15,22 @@ class IndicatorService
         return $indicator;
     }
 
-    public function insert(array $data)
+    public function insert(array $data): Indicator
     {
         return Indicator::create($data);
     }
 
-    public function findById(int $id)
+    public function findById(int $id): ?Indicator
     {
         return Indicator::find($id);
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, int $id): int
     {
         return Indicator::where('indicator_id', $id)->update($data);
     }
 
-    public function delete(int $id)
+    public function delete(int $id): int
     {
         return Indicator::destroy($id);
     }
