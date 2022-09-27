@@ -29,7 +29,7 @@
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi Indikator</label>
             <div class="col-sm-12 col-md-7">
-             <textarea name="indicator_description" class="form-control" style="height: 100px">{{old("indicator_description")}}</textarea>
+             <textarea name="indicator_description" id="summernote" class="form-control" style="height: 200px">{{old("indicator_description")}}</textarea>
             </div>
           </div>
           <div class="form-group row mb-2">
@@ -65,5 +65,29 @@
   </div>
 </div>
 @endsection
+@push('css-datatables')
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endpush
+@push('datatables-js')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+  <script>
+    $(document).ready( function () {
+      $('#summernote').summernote({
+        placeholder: 'Deskripsi Indikator',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          ['view', [, 'codeview']]
+        ]
+      });
+    });
+  </script>
+@endpush
 
 
