@@ -12,23 +12,23 @@ class DepartmentService
         return Departments::all();
     }
 
-    public function insert(array $data): Indicator
+    public function insert(array $data): Departments
     {
-        return Indicator::create($data);
+        return Departments::create($data);
     }
 
-    public function findById(int $id): ?Indicator
+    public function findById(int $id): ?Departments
     {
-        return Indicator::find($id);
+        return Departments::find($id);
     }
 
     public function update(array $data, int $id): int
     {
-        return Indicator::where('indicator_id', $id)->update($data);
+        return Departments::where('department_id', $id)->update($data);
     }
 
     public function delete(int $id): int
     {
-        return Indicator::destroy($id);
+        return Departments::destroy($id);
     }
 }

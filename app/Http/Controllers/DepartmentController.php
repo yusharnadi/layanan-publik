@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DepartmentPostRequest;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DepartmentController extends Controller
 {
     public function __construct(private DepartmentService $departmentService)
     {
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $departments = $this->departmentService->findAll();
@@ -22,69 +20,77 @@ class DepartmentController extends Controller
         return view('department.index', ['departments' => $departments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('department.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(DepartmentPostRequest $request)
     {
-        //
+        try {
+            $this->departmentService->insert($request->safe()->except(['_token']));
+
+            return redirect()->route('department.index')->with('message', "Berhasil menambahkan department");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage());
+
+            return redirect()->route('department.index')->with('error', "Gagal menambahkan department");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(int $id)
     {
-        //
+        $department = $this->departmentService->findById($id);
+
+        if ($department == null) {
+            abort('404');
+        }
+
+        return view('department.edit', ['department' => $department]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(DepartmentPostRequest $request, int $id)
     {
-        //
+        try {
+
+            $this->departmentService->update($request->safe()->except(['_token']), $id);
+
+            return redirect()->route('department.index')->with('message', "Berhasil mengubah department");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage());
+
+            return redirect()->route('department.index')->with('error', "Gagal mengubah department");
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
+    }
+
+    public function delete(int $id)
+    {
+        try {
+            if ($this->departmentService->findById($id) == null) {
+                throw new \Exception("Department not found.");
+            }
+
+            $this->departmentService->delete($id);
+
+            return redirect()->route('department.index')->with('message', "Berhasil menghapus Department");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ["department_id" => $id]);
+
+            return redirect()->route('department.index')->with('error', "Gagal menghapus Department");
+        }
     }
 }
