@@ -13,6 +13,7 @@
     <ul class="sidebar-menu">
       <li class="{{set_active('dashboard')}}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-laptop"></i><span>Dashboard</span></a></li>
       <li class="menu-header">Transaction Data</li>
+      <li class="{{set_active('penilaian.*')}}"><a class="nav-link" href="{{ route('penilaian.index') }}"><i class="fas fa-book"></i><span>Laporan Penilaian</span></a></li>
 
 
       <li class="menu-header">Master Data</li>

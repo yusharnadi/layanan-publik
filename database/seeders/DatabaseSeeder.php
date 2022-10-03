@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AspectSeeder::class,
-            DepartmentSeeder::class
+            DepartmentSeeder::class,
+            IndicatorSeeder::class
         ]);
     }
 }
