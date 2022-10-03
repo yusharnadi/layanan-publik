@@ -21,7 +21,7 @@
                 <th>Indikator</th>
                 {{-- <th>Deskripsi</th> --}}
                 <th>Visibilitas</th>
-                <th style="width: 40px;">action</th>
+                <th style="width: 60px;">action</th>
               </tr>
             </thead>
             <tbody>

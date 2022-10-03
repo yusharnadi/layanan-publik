@@ -24,13 +24,43 @@
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Indikator</label>
             <div class="col-sm-12 col-md-7">
-              <input type="text" name="indicator_name" class="form-control" value="{{old("indicator_name") ?? $indicator->indicator_name}}" required>
+             <textarea name="indicator_name" class="form-control" style="height: 100px" required>{{old("indicator_name") ?? $indicator->indicator_name}}</textarea>
             </div>
           </div>
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi Indikator</label>
             <div class="col-sm-12 col-md-7">
              <textarea name="indicator_description" id="summernote" class="form-control" style="height: 200px">{{old("indicator_description") ?? $indicator->indicator_description}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #1</label>
+            <div class="col-sm-12 col-md-7">
+              <input type="text" name="doc_1" class="form-control" value="{{old("doc_1") ?? $indicator->doc_1}}" required>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #2</label>
+            <div class="col-sm-12 col-md-7">
+              <input type="text" name="doc_2" class="form-control" value="{{old("doc_2") ?? $indicator->doc_2}}">
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #3</label>
+            <div class="col-sm-12 col-md-7">
+              <input type="text" name="doc_3" class="form-control" value="{{old("doc_3") ?? $indicator->doc_3}}">
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #4</label>
+            <div class="col-sm-12 col-md-7">
+              <input type="text" name="doc_4" class="form-control" value="{{old("doc_4") ?? $indicator->doc_4}}">
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #5</label>
+            <div class="col-sm-12 col-md-7">
+              <input type="text" name="doc_5" class="form-control" value="{{old("doc_5") ?? $indicator->doc_5}}">
             </div>
           </div>
           <div class="form-group row mb-2">

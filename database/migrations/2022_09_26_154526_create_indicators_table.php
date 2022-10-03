@@ -16,9 +16,14 @@ return new class extends Migration
         Schema::create('indicators', function (Blueprint $table) {
             $table->id('indicator_id');
             $table->string('indicator_code');
-            $table->string('indicator_name');
+            $table->text('indicator_name');
             $table->text('indicator_description');
             $table->tinyInteger('indicator_visibility');
+            $table->string('doc_1');
+            $table->string('doc_2')->nullable();
+            $table->string('doc_3')->nullable();
+            $table->string('doc_4')->nullable();
+            $table->string('doc_5')->nullable();
             $table->tinyInteger('aspect_id');
         });
     }

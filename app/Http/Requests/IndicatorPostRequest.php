@@ -29,6 +29,11 @@ class IndicatorPostRequest extends FormRequest
             'indicator_description' => 'required',
             'indicator_visibility' => 'required',
             'aspect_id' => 'required',
+            'doc_1' => 'required',
+            'doc_2' => '',
+            'doc_3' => '',
+            'doc_4' => '',
+            'doc_5' => '',
         ];
     }
 }
