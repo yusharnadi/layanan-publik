@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 function set_active($uri, $output = 'active')
@@ -31,4 +32,19 @@ function getSemester(): int
         $smt = 2;
     }
     return $smt;
+}
+
+function isUploaded(int $indicator_id, int $department_id)
+{
+
+    $result = DB::table('penilaians')
+        ->select('penilaian_id')
+        ->where('department_id', $department_id)
+        ->where('indicator_id', $indicator_id)
+        ->whereYear('updated_at', date('Y'))
+        ->where('semester', getSemester())
+        ->orderBy('penilaian_id', 'desc')
+        ->first();
+
+    return $result;
 }
