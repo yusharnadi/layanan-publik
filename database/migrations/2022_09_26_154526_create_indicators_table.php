@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('doc_2')->nullable();
             $table->string('doc_3')->nullable();
             $table->string('doc_4')->nullable();
-            $table->string('doc_5')->nullable();
+            // $table->string('doc_5')->nullable();
             $table->tinyInteger('aspect_id');
         });
     }

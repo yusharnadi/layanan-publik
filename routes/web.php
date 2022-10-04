@@ -19,6 +19,8 @@ Route::resource('/device', DeviceController::class);
 Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
 Route::get('/penilaian/{id}/create', [PenilaianController::class, 'create'])->name('penilaian.create');
 Route::post('/penilaian/{id}/store', [PenilaianController::class, 'store'])->name('penilaian.store');
+Route::get('/penilaian/{id}/edit', [PenilaianController::class, 'edit'])->name('penilaian.edit');
+Route::put('/penilaian/{id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
 
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');

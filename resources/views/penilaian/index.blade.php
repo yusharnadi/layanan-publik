@@ -18,7 +18,7 @@
                 <th style="width: 10px;">#</th>
                 <th style="width: 300px;">Aspek</th>
                 <th>Indikator</th>
-                {{-- <th>Visibilitas</th> --}}
+                <th>Status</th>
                 <th style="width: 60px;">#</th>
               </tr>
             </thead>
@@ -28,10 +28,13 @@
                     <td>{{$indicator->indicator_id}}</td>
                     <td>{{$indicator->aspect_name}}</td>
                     <td>{{$indicator->indicator_code . ' '.$indicator->indicator_name}}</td>
-                    {{-- <td>{!!$indicator->indicator_description !!}</td> --}}
-                    {{-- <td>{!!$indicator->indicator_visibility == 1 ? '<span class="badge badge-warning">Private</span>':'<span class="badge badge-success">Publik</span>' !!}</td> --}}
+                    <td>{!! isUploaded($indicator->indicator_id, $department_id = 1) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
                     <td>
+                      @if ($penilaian = isUploaded($indicator->indicator_id, $department_id = 1) )
+                        <a href="{{route('penilaian.edit', $penilaian->penilaian_id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>    
+                      @else
                         <a href="{{route('penilaian.create', $indicator->indicator_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+                      @endif
                     </td>
                 </tr>
             @endforeach

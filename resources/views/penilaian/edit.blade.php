@@ -1,5 +1,5 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Upload Dokumen Laporan Penilaian')
+@section('page-heading', 'Edit Upload Dokumen Laporan Penilaian')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -12,15 +12,14 @@
               </div>
             @endforeach    
           @endif
-        <form action="{{route('penilaian.store', $indicator->indicator_id)}}" class="form" method="POST" enctype="multipart/form-data">
+        <form action="{{route('penilaian.update', $penilaian->penilaian_id)}}" class="form" method="POST" enctype="multipart/form-data">
           @csrf
-          <input type="hidden" name="indicator_id" value="{{$indicator->indicator_id}}">
-          <input type="hidden" name="department_id" value="1">
+          @method('PUT')
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Indikator</label>
             <div class="col-sm-12 col-md-9">
               {{-- <input type="text" name="indicator_name" class="form-control" value="{{$indicator->indicator_name}}" readonly> --}}
-             <textarea name="indicator_name" class="form-control" style="height: 60px" disabled>{{old("indicator_name") ?? $indicator->indicator_name}}</textarea>
+             <textarea name="indicator_name" class="form-control" style="height: 60px" disabled>{{old("indicator_name") ?? $penilaian->indicator_name}}</textarea>
             </div>
           </div>
           <div class="form-group row mb-2">
@@ -32,45 +31,45 @@
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Semester</label>
             <div class="col-sm-12 col-md-1">
-              <input type="text" name="semester" class="form-control" value="{{getSemester()}}" readonly>
+              <input type="text" name="semester" class="form-control" value="{{getSemester()}}" disabled>
             </div>
           </div>
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Keterangan</label>
             <div class="col-sm-12 col-md-7">
                 <div>
-                    {!! $indicator->indicator_description !!}
+                    {!! $penilaian->indicator_description !!}
                 </div>
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #1 : <strong>{{$indicator->doc_1}}</strong></label>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #1 : <strong>{{$penilaian->doc_1}}</strong></label>
             <div class="col-sm-12 col-md-9">
               <input type="file" name="file_1" class="form-control" required>
             </div>
           </div>
 
-          @if ($indicator->doc_2 != '')
+          @if ($penilaian->doc_2 != '')
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #2 : <strong>{{$indicator->doc_2}}</strong></label>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #2 : <strong>{{$penilaian->doc_2}}</strong></label>
             <div class="col-sm-12 col-md-9">
               <input type="file" name="file_2" class="form-control" required>
             </div>
           </div>
           @endif
 
-          @if ($indicator->doc_3 != '')
+          @if ($penilaian->doc_3 != '')
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #3 : <strong>{{$indicator->doc_3}}</strong></label>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #3 : <strong>{{$penilaian->doc_3}}</strong></label>
             <div class="col-sm-12 col-md-9">
               <input type="file" name="file_3" class="form-control" required>
             </div>
           </div>
           @endif
 
-          @if ($indicator->doc_4 != '')
+          @if ($penilaian->doc_4 != '')
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #4 : <strong>{{$indicator->doc_4}}</strong></label>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Dokumen #4 : <strong>{{$penilaian->doc_4}}</strong></label>
             <div class="col-sm-12 col-md-9">
               <input type="file" name="file_4" class="form-control" required>
             </div>

@@ -56,12 +56,12 @@
               <input type="text" name="doc_4" class="form-control" value="{{old("doc_4")}}">
             </div>
           </div>
-          <div class="form-group row mb-2">
+          {{-- <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #5</label>
             <div class="col-sm-12 col-md-7">
               <input type="text" name="doc_5" class="form-control" value="{{old("doc_5")}}">
             </div>
-          </div>
+          </div> --}}
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Aspect</label>
             <div class="col-sm-5 col-md-3">
@@ -119,7 +119,5 @@
     });
   </script>
 @endpush
-
-<ul><li>Setiap unit lokus wajib menyusun Standar Pelayanan sebagai pedoman penyelenggaraan pelayanan dan acuan penilaian kualitas pelayanan</li><li>Standar Pelayanan setelah disusun disusun dan dibahas dengan masyarakat wajib untuk ditetapkan, agar dapat memiliki kekuatan hukum.</li></ul>
 
 
