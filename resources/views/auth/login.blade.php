@@ -25,7 +25,7 @@
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
               <h3>{{config('app.name')}}</h3>
-              <img src="{{asset('assets/img/logo.png')}}" alt="logo" width="110" class="">
+              <img src="{{asset('assets/img/logo-skw-150.png')}}" alt="logo" width="50" class="">
             </div>
 
             <div class="card card-primary">
@@ -46,7 +46,7 @@
                 @if (session('message'))
                   <div class="alert alert-primary"><h6>{{session('message')}}</h6></div> 
                 @endif
-                <form method="POST" action="{{route('doLogin')}}" class="needs-validation" novalidate="">
+                <form method="POST" action="{{route('login.process')}}" class="needs-validation" novalidate="">
                   @csrf
                   <div class="form-group">
                     <label for="email">Email</label>
@@ -88,7 +88,7 @@
               Lupa Password ? <a href="https://wa.me/6289649454130?text=Reset+password">Hubungi Administror disini.</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; {{config('app.name')}} 2021
+              Copyright &copy; {{config('app.name')}} 2022
             </div>
           </div>
         </div>
