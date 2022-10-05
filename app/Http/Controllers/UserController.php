@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,7 @@ class UserController extends Controller
             $this->userService->insert($validRequest);
             return redirect()->route('users.index')->with('message', "User berhasil dibuat.");
         } catch (\Exception $th) {
-            Log::error($th->getMessage());
+            Log::error($th->getMessage(), ['request' => $validRequest]);
             return redirect()->route('users.index')->with('error', "User gagal dibuat.");
         }
     }
@@ -84,9 +85,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        if (!Auth::user()->can('update user')) abort(403);
+
+        $user = $this->userService->findById($id);
+
+        $roles = Role::pluck('name')->all();
+        $role = $user->getRoleNames();
+
+        $departments = $this->departmentService->findAll();
+
+
+        return view('user.edit', ['user' => $user, 'roles' => $roles, 'role' => $role, 'departments' => $departments]);
     }
 
     /**
@@ -96,9 +107,25 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        if (!Auth::user()->can('update user')) abort(403);
+
+        $validRequest = $request->safe()->except(['_token', 'role']);
+
+        if ($request->has('password') && $request->password != '') {
+            $validRequest['password'] = Hash::make($validRequest['password']);
+        }
+
+        // dd($validRequest);
+
+        try {
+            $this->userService->update($id, $validRequest, $request->role);
+            return redirect()->route('users.index')->with('message', "User berhasil diubah.");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ['request' => $validRequest]);
+            return redirect()->route('users.index')->with('error', "User gagal diubah.");
+        }
     }
 
     /**
@@ -110,5 +137,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function delete(int $id)
+    {
+        if (!Auth::user()->can('delete user')) abort(403);
+
+        try {
+            $this->userService->delete($id);
+            return redirect()->route('users.index')->with('message', "User berhasil dihapus.");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ['user_id' => $id]);
+            return redirect()->route('users.index')->with('error', "User gagal dihapus.");
+        }
     }
 }

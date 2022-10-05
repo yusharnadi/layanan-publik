@@ -16,6 +16,7 @@
             <thead>
               <tr>
                 <th>Name</th>
+                <th>NIP</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Department</th>
@@ -26,6 +27,7 @@
             @foreach ($users as $user)  
                 <tr>
                     <td>{{$user->name}}</td>
+                    <td>{{$user->nip}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
                     <td>{{$user->department_name}}</td>
