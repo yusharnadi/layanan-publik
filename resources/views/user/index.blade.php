@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <a href="{{route('users.create')}}" class="btn btn-info mb-2">Tambah Data</a>
           @if (session('error'))
             <div class="alert alert-danger">{{session('error')}}</div> 
@@ -18,8 +18,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Status</th>
-                <th>action</th>
+                <th>Department</th>
+                <th style="width: 50px">action</th>
               </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-                    <td>{!!$user->status == 1 ? '<span class="badge badge-primary">Aktif</span>':'<span class="badge badge-light">Tdk Aktif</span>' !!}</td>
+                    <td>{{$user->department_name}}</td>
                     <td>
                         <a href="{{route('users.edit', $user->id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                         <a href="{{route('users.delete', $user->id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>

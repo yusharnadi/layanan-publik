@@ -1,5 +1,5 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Create User & Operator')
+@section('page-heading', 'Create User')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -16,46 +16,52 @@
           @csrf
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
-            <div class="col-sm-12 col-md-7">
-              <input type="text" name="name" class="form-control" required>
+            <div class="col-sm-12 col-md-4">
+              <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIP</label>
+            <div class="col-sm-12 col-md-4">
+              <input type="text" name="nip" class="form-control" value="{{old('nip')}}" required>
             </div>
           </div>
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
-            <div class="col-sm-12 col-md-7">
-                <input type="email" name="email" class="form-control" required>
+            <div class="col-sm-12 col-md-4">
+                <input type="email" name="email" class="form-control" value="{{old('email')}}" required>
             </div>
           </div>
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password</label>
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-4">
                 <input type="password" name="password" class="form-control" required>
             </div>
           </div>
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password Confirmation</label>
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-4">
                 <input type="password" name="password_confirmation" class="form-control" required>
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Role</label>
-            <div class="col-sm-12 col-md-7">
-                <select name="role" class="form-control" required>
-                    <option value="">--- Pilih Role ---</option>
-                    @foreach ($roles as $role)
-                    <option value="{{$role}}">{{$role}}</option>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Department</label>
+            <div class="col-sm-12 col-md-6">
+                <select name="department_id" class="form-control" required>
+                    <option value="">--- Pilih Department ---</option>
+                    @foreach ($departments as $department)
+                    <option value="{{$department->department_id}}">{{$department->department_fullname}}</option>
                     @endforeach
                 </select>
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">PLBN</label>
-            <div class="col-sm-12 col-md-7">
-                <select name="id_plbn" class="form-control" required>
-                    <option value="">--- Pilih PLBN ---</option>
-                    @foreach ($plbn as $item)
-                    <option value="{{$item->id}}">{{$item->nama}}</option>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Role</label>
+            <div class="col-sm-12 col-md-2">
+                <select name="role" class="form-control" required>
+                    <option value="">--- Pilih Role ---</option>
+                    @foreach ($roles as $role)
+                    <option value="{{$role}}">{{$role}}</option>
                     @endforeach
                 </select>
             </div>
