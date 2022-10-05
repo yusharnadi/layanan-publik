@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AspectSeeder::class,
             DepartmentSeeder::class,
-            IndicatorSeeder::class
+            IndicatorSeeder::class,
+            PermissionSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
