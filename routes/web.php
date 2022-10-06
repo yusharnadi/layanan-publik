@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/indicator', IndicatorController::class);
     Route::resource('/department', DepartmentController::class);
+    Route::resource('/users', UserController::class);
 
     Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
     Route::get('/penilaian/{id}/create', [PenilaianController::class, 'create'])->name('penilaian.create');
@@ -22,9 +24,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/penilaian/{id}/edit', [PenilaianController::class, 'edit'])->name('penilaian.edit');
     Route::put('/penilaian/{id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
 
+    Route::get('/role', [RoleController::class, 'index'])->name('role.index');
+    Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
+    Route::post('/role', [RoleController::class, 'store'])->name('role.store');
+    Route::get('/role/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+    Route::put('/role/{id}/update', [RoleController::class, 'update'])->name('role.update');
+
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::resource('/users', UserController::class);
 
     // DELETE ROUTE 
     Route::get('/user/{id}/delete', [UserController::class, 'delete'])->name('users.delete');

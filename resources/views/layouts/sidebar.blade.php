@@ -20,6 +20,7 @@
       <li class="{{set_active('indicator.*')}}"><a class="nav-link" href="{{ route('indicator.index') }}"><i class="far fa-lightbulb"></i><span>Indikator</span></a></li>
       <li class="{{set_active('department.*')}}"><a class="nav-link" href="{{ route('department.index') }}"><i class="far fa-building"></i><span>Department</span></a></li>
       <li class="{{set_active('users.*')}}"><a class="nav-link" href="{{ route('users.index') }}"><i class="far fa-user"></i><span>Users</span></a></li>
+      <li class="{{set_active('role.*')}}"><a class="nav-link" href="{{ route('role.index') }}"><i class="fas fa-user-tag"></i><span>Role</span></a></li>
       
     </ul>
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
