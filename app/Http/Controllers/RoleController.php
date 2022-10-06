@@ -51,7 +51,7 @@ class RoleController extends Controller
     {
         // if (!Auth::user()->can('update role')) abort(403);
 
-        $role = Role::findById($id);
+        $role = Role::findOrFail($id);
 
         $userPermission = DB::table('role_has_permissions')
             ->where('role_id', $id)
