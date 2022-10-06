@@ -69,5 +69,70 @@ class DepartmentSeeder extends Seeder
             "department_name" => "DPKPP",
             "department_fullname" => "Dinas Pertanian, Ketahanan Pangan dan Perikanan"
         ]);
+
+        Departments::create([
+            "department_name" => "LH",
+            "department_fullname" => "Dinas Lingkungan Hidup"
+        ]);
+
+        Departments::create([
+            "department_name" => "DUKCAPIL",
+            "department_fullname" => "Dinas Kependudukan dan Pencatatan Sipil"
+        ]);
+
+        Departments::create([
+            "department_name" => "DISHUB",
+            "department_fullname" => "Dinas Perhubungan"
+        ]);
+
+        Departments::create([
+            "department_name" => "DISKOMINFO",
+            "department_fullname" => "Dinas Komunikasi dan Informatika"
+        ]);
+
+        Departments::create([
+            "department_name" => "DISDAGINKOP",
+            "department_fullname" => "Dinas Perdagangan, Perindustrian, Koperasi dan UKM"
+        ]);
+
+        Departments::create([
+            "department_name" => "DISPARPORA",
+            "department_fullname" => "Dinas Pariwisata, Pemuda dan Olahraga"
+        ]);
+
+        Departments::create([
+            "department_name" => "DISPUSIP",
+            "department_fullname" => "Dinas Perpustakaan dan Kearsipan"
+        ]);
+
+        Departments::create([
+            "department_name" => "SATPOLPP",
+            "department_fullname" => "Satuan Polisi Pamong Praja"
+        ]);
+
+        Departments::create([
+            "department_name" => "BAPPEDA",
+            "department_fullname" => "Badan Perencanaan Pembangunan Daerah"
+        ]);
+
+        Departments::create([
+            "department_name" => "BKD",
+            "department_fullname" => "Badan Keuangan Daerah"
+        ]);
+
+        Departments::create([
+            "department_name" => "BKPSDM",
+            "department_fullname" => "Badan Kepegawaian dan Pengembangan SDM"
+        ]);
+
+        Departments::create([
+            "department_name" => "KESBANGPOL",
+            "department_fullname" => "Badan Kesatuan Bangsa dan Politik"
+        ]);
+
+        Departments::create([
+            "department_name" => "BPBD",
+            "department_fullname" => "Badan Penanggulangan bencana Daerah"
+        ]);
     }
 }
