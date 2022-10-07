@@ -13,7 +13,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        // if (!Auth::user()->can('read role')) abort(403);
+        if (!Auth::user()->can('read role')) abort(403);
 
         $roles = Role::all();
 
@@ -22,7 +22,7 @@ class RoleController extends Controller
 
     public function create()
     {
-        // if (!Auth::user()->can('create role')) abort(403);
+        if (!Auth::user()->can('create role')) abort(403);
 
         $permissions = Permission::all()->pluck('name')->all();
 
@@ -31,10 +31,9 @@ class RoleController extends Controller
 
     public function store(RoleStoreRequest $request)
     {
-        // if (!Auth::user()->can('create role')) abort(403);
+        if (!Auth::user()->can('create role')) abort(403);
 
         $validRequest = $request->validated();
-        // dd($validRequest);
         try {
             $role = Role::create(['name' => $validRequest['name']]);
             $role->syncPermissions($validRequest['permission']);
@@ -49,7 +48,7 @@ class RoleController extends Controller
 
     public function edit($id)
     {
-        // if (!Auth::user()->can('update role')) abort(403);
+        if (!Auth::user()->can('update role')) abort(403);
 
         $role = Role::findOrFail($id);
 
@@ -69,7 +68,7 @@ class RoleController extends Controller
 
     public function update(RoleStoreRequest $request, $id)
     {
-        // if (!Auth::user()->can('update role')) abort(403);
+        if (!Auth::user()->can('update role')) abort(403);
         $validRequest = $request->validated();
 
         try {

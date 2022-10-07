@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DepartmentPostRequest;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class DepartmentController extends Controller
@@ -15,6 +16,8 @@ class DepartmentController extends Controller
 
     public function index()
     {
+        if (!Auth::user()->can('read department')) abort(403);
+
         $departments = $this->departmentService->findAll();
 
         return view('department.index', ['departments' => $departments]);
@@ -22,11 +25,15 @@ class DepartmentController extends Controller
 
     public function create()
     {
+        if (!Auth::user()->can('create department')) abort(403);
+
         return view('department.create');
     }
 
     public function store(DepartmentPostRequest $request)
     {
+        if (!Auth::user()->can('create department')) abort(403);
+
         try {
             $this->departmentService->insert($request->safe()->except(['_token']));
 
@@ -47,6 +54,8 @@ class DepartmentController extends Controller
 
     public function edit(int $id)
     {
+        if (!Auth::user()->can('update department')) abort(403);
+
         $department = $this->departmentService->findById($id);
 
         if ($department == null) {
@@ -59,6 +68,8 @@ class DepartmentController extends Controller
 
     public function update(DepartmentPostRequest $request, int $id)
     {
+        if (!Auth::user()->can('update department')) abort(403);
+
         try {
 
             $this->departmentService->update($request->safe()->except(['_token']), $id);
@@ -79,6 +90,8 @@ class DepartmentController extends Controller
 
     public function delete(int $id)
     {
+        if (!Auth::user()->can('delete department')) abort(403);
+
         try {
             if ($this->departmentService->findById($id) == null) {
                 throw new \Exception("Department not found.");

@@ -15,7 +15,7 @@
         <form action="{{route('penilaian.store', $indicator->indicator_id)}}" class="form" method="POST" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="indicator_id" value="{{$indicator->indicator_id}}">
-          <input type="hidden" name="department_id" value="1">
+          <input type="hidden" name="department_id" value="{{$department_id}}">
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Indikator</label>
             <div class="col-sm-12 col-md-9">

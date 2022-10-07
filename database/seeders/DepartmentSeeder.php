@@ -132,7 +132,7 @@ class DepartmentSeeder extends Seeder
 
         Departments::create([
             "department_name" => "BPBD",
-            "department_fullname" => "Badan Penanggulangan bencana Daerah"
+            "department_fullname" => "Badan Penanggulangan Bencana Daerah"
         ]);
     }
 }

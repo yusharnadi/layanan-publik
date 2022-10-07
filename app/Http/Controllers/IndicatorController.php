@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IndicatorPostRequest;
 use App\Services\AspectService;
 use App\Services\IndicatorService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class IndicatorController extends Controller
@@ -14,6 +15,8 @@ class IndicatorController extends Controller
     }
     public function index()
     {
+        if (!Auth::user()->can('read indicator')) abort(403);
+
         $indicators = $this->indicatorService->findAll();
 
         return view('indicator.index', ['indicators' => $indicators]);
@@ -22,6 +25,8 @@ class IndicatorController extends Controller
 
     public function create()
     {
+        if (!Auth::user()->can('create indicator')) abort(403);
+
         $aspects = $this->aspectService->findAll();
 
         return view('indicator.create', ['aspects' => $aspects]);
@@ -30,6 +35,8 @@ class IndicatorController extends Controller
 
     public function store(IndicatorPostRequest $request)
     {
+        if (!Auth::user()->can('create indicator')) abort(403);
+
         try {
 
             $this->indicatorService->insert($request->safe()->except(['_token']));
@@ -51,6 +58,8 @@ class IndicatorController extends Controller
 
     public function edit(int $id)
     {
+        if (!Auth::user()->can('update indicator')) abort(403);
+
         $aspects = $this->aspectService->findAll();
 
         $indicator = $this->indicatorService->findById($id);
@@ -65,6 +74,8 @@ class IndicatorController extends Controller
 
     public function update(IndicatorPostRequest $request, int $id)
     {
+        if (!Auth::user()->can('update indicator')) abort(403);
+
         try {
             $validated = $request->safe()->except(['_token']);
 
@@ -86,6 +97,8 @@ class IndicatorController extends Controller
 
     public function delete(int $id)
     {
+        if (!Auth::user()->can('delete indicator')) abort(403);
+
         try {
             if ($this->indicatorService->findById($id) == null) {
                 throw new \Exception("Indicator not found.");
