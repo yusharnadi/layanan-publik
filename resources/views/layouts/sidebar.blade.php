@@ -13,13 +13,17 @@
     <ul class="sidebar-menu">
       <li class="{{set_active('dashboard')}}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-laptop"></i><span>Dashboard</span></a></li>
       
+      @can("read user")
       <li class="menu-header">Transaction Data</li>
+      @endcan
 
       @can("read penilaian")
       <li class="{{set_active('penilaian.*')}}"><a class="nav-link" href="{{ route('penilaian.index') }}"><i class="fas fa-book"></i><span>Laporan Penilaian</span></a></li>
       @endcan
 
+      @can("read user")
       <li class="menu-header">Master Data</li>
+      @endcan
 
       @can("read indicator")
       <li class="{{set_active('indicator.*')}}"><a class="nav-link" href="{{ route('indicator.index') }}"><i class="far fa-lightbulb"></i><span>Indikator</span></a></li>
