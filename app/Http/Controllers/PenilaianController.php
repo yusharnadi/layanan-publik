@@ -31,7 +31,7 @@ class PenilaianController extends Controller
         }
 
         $departments = $this->departmentService->findAll();
-        return view('penilaian/index_admin', ['departments' => $departments]);
+        return view('penilaian.index_admin', ['departments' => $departments]);
     }
 
     public function create(int $id)
@@ -88,5 +88,28 @@ class PenilaianController extends Controller
             Log::error($th->getMessage());
             return redirect()->route('penilaian.index')->with('error', 'Gagal upload dokumen');
         }
+    }
+
+    public function penilaianDepartment(int $department_id)
+    {
+        if (!Auth::user()->can('read penilaian')) abort(403);
+
+        $indicators = $this->indicatorService->findAll();
+        $department = $this->departmentService->findById($department_id);
+
+        return view('penilaian.penilaian_department', ['indicators' => $indicators, 'department' => $department]);
+    }
+
+    public function  penilaianDetail(int $penilaian_id)
+    {
+        if (!Auth::user()->can('read penilaian')) abort(403);
+
+        $penilaian =  $this->penilaianService->findById($penilaian_id);
+        // dd($penilaian);
+        if ($penilaian == null) {
+            abort(404);
+        }
+
+        return view('penilaian.detail_admin', ['penilaian' => $penilaian]);
     }
 }

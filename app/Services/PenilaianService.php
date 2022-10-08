@@ -13,6 +13,8 @@ class PenilaianService
     {
         $result = DB::table('penilaians')
             ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
+            ->join('departments', 'departments.department_id', '=', 'penilaians.department_id')
+            ->join('users', 'users.department_id', '=', 'departments.department_id')
             ->where('penilaians.penilaian_id', $id)
             ->first();
 

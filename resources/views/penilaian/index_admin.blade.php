@@ -34,7 +34,7 @@
                       </div>
                     </td>
                     <td>
-                        <a href="{{route('department.edit', $department->department_id)}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
+                        <a href="{{route('penilaian.department', $department->department_id)}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
                         {{-- <a href="{{route('department.delete', $department->department_id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
                     </td>
                 </tr>

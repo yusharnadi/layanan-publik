@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/penilaian/{id}/store', [PenilaianController::class, 'store'])->name('penilaian.store');
     Route::get('/penilaian/{id}/edit', [PenilaianController::class, 'edit'])->name('penilaian.edit');
     Route::put('/penilaian/{id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
+    Route::get('/penilaian/{id}/department', [PenilaianController::class, 'penilaianDepartment'])->name('penilaian.department');
+    Route::get('/penilaian/{id}/detail', [PenilaianController::class, 'penilaianDetail'])->name('penilaian.detail');
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
