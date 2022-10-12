@@ -48,3 +48,16 @@ function isUploaded(int $indicator_id, int $department_id)
 
     return $result;
 }
+
+function getPercentage(int $department_id): int
+{
+    $result = 0;
+    $indicator_count = DB::table('indicators')->count('indicator_id');
+    $penilaian_done = DB::table('penilaians')->where('department_id', $department_id)->whereYear('updated_at', date('Y'))->where('semester', getSemester())->count('penilaian_id');
+
+    if ($penilaian_done != null && $penilaian_done != 0) {
+        $result = round(($penilaian_done / $indicator_count) * 100, 2);
+    }
+
+    return $result;
+}
