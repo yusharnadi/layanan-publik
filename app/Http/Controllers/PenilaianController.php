@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PenilaianStoreRequest;
 use App\Http\Requests\PenilaianUpdateRequest;
-use Illuminate\Http\Request;
-use App\Services\AspectService;
 use App\Services\DepartmentService;
 use App\Services\IndicatorService;
 use App\Services\PenilaianService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class PenilaianController extends Controller
@@ -21,6 +18,7 @@ class PenilaianController extends Controller
 
     public function index()
     {
+        // dd(getPercentage(3));
         if (!Auth::user()->can('read penilaian')) abort(403);
 
         if (Auth::user()->hasRole('user')) {

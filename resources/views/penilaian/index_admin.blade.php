@@ -30,7 +30,7 @@
                     <td>{{$department->department_fullname}}</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" data-width="75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                        <div class="progress-bar {{getPercentage($department->department_id) == 100 ? 'bg-success':''}}" role="progressbar" data-width="{{getPercentage($department->department_id)}}%" aria-valuenow="{{getPercentage($department->department_id)}}" aria-valuemin="0" aria-valuemax="100">{{getPercentage($department->department_id)}}%</div>
                       </div>
                     </td>
                     <td>
