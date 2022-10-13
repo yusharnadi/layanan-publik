@@ -49,7 +49,7 @@ class PermissionSeeder extends Seeder
         Role::create(['name' => 'evaluator']);
 
         $user = Role::create(['name' => 'user']);
-        $user->syncPermissions(['read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian']);
+        $user->syncPermissions(['read penilaian', 'create penilaian', 'update penilaian']);
 
         $role = Role::create(['name' => 'administrator']);
         $role->givePermissionTo(Permission::all());
