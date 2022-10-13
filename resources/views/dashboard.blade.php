@@ -1,5 +1,10 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Dashboard')
+@section('page-heading')
+  <h1>Dashboard</h1>
+  <div class="section-header-breadcrumb">
+    {{-- <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Dashboard</a></div> --}}
+  </div>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">

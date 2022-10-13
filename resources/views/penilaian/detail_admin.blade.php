@@ -1,5 +1,14 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Dokumen Laporan Penilaian')
+@section('page-title', 'Detail Laporan Penilaian ')
+@section('page-heading')
+  <h1>Detail Laporan Penilaian</h1>
+  <div class="section-header-breadcrumb">
+    <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$penilaian->department_name}}</a></div>
+    {{-- <div class="breadcrumb-item">{{$tahun}}</div> --}}
+    {{-- <div class="breadcrumb-item">Semester {{$semester}}</div> --}}
+  </div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -30,11 +39,11 @@
                 </tr>
                 <tr>
                     <td>Tahun</td>
-                    <td>{{date('Y')}}</td>
+                    <td>{{$th = explode('-',$penilaian->created_at)[0]}}</td>
                 </tr>
                 <tr>
                     <td>Semester</td>
-                    <td>{{getSemester()}}</td>
+                    <td>{{$penilaian->semester}}</td>
                 </tr>
                 @if ($penilaian->doc_1 != '')
                 <tr>

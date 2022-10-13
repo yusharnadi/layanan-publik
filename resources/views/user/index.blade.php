@@ -1,5 +1,8 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Users')
+@section('page-title', 'Users')
+@section('page-heading')
+  <h1>Users</h1>
+@endsection
 @section('content')
   <div class="row">
     <div class="col-12">

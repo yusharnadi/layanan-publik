@@ -1,5 +1,8 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Edit Indikator')
+@section('page-title', 'Edit Indikator')
+@section('page-heading')
+  <h1>Edit Indikator</h1>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -57,12 +60,6 @@
               <input type="text" name="doc_4" class="form-control" value="{{old("doc_4") ?? $indicator->doc_4}}">
             </div>
           </div>
-          {{-- <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Sumber Data #5</label>
-            <div class="col-sm-12 col-md-7">
-              <input type="text" name="doc_5" class="form-control" value="{{old("doc_5") ?? $indicator->doc_5}}">
-            </div>
-          </div> --}}
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Aspect</label>
             <div class="col-sm-5 col-md-3">

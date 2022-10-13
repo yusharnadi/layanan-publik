@@ -1,5 +1,8 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Create User')
+@section('page-title', 'Tambah Users')
+@section('page-heading')
+  <h1>Tambah Users</h1>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">

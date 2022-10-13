@@ -1,5 +1,8 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Edit Department')
+@section('page-title', 'Edit Department')
+@section('page-heading')
+  <h1>Edit Department</h1>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">

@@ -1,5 +1,13 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Upload Dokumen Laporan Penilaian')
+@section('page-title', 'Upload Dokumen Laporan Penilaian ')
+@section('page-heading')
+  <h1>Upload Dokumen Laporan Penilaian</h1>
+  <div class="section-header-breadcrumb">
+    <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item">{{date('Y')}}</div>
+    <div class="breadcrumb-item">Semester {{getSemester()}}</div>
+  </div>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">

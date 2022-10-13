@@ -12,6 +12,7 @@ class PenilaianService
     public function findById(int $id)
     {
         $result = DB::table('penilaians')
+            ->select('penilaians.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname', 'doc_1', 'doc_2', 'doc_3', 'doc_4', 'nip', 'name')
             ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
             ->join('departments', 'departments.department_id', '=', 'penilaians.department_id')
             ->join('users', 'users.department_id', '=', 'departments.department_id')

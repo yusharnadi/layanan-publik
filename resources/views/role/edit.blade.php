@@ -1,11 +1,13 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Buat Role')
+@section('page-title', 'Edit Users Role')
+@section('page-heading')
+  <h1>Edit Users Role</h1>
+@endsection
 @section('content')
 <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        {{-- <div class="alert alert-danger">Error goes here</div> --}}
           @if ($errors->any())
             @foreach ($errors->all() as $err)
               <div class="alert alert-danger">
