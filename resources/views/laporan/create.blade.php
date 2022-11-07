@@ -3,7 +3,7 @@
 @section('page-heading')
   <h1>Upload Dokumen Laporan Penilaian</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Laporan Penilaian</a></div>
     <div class="breadcrumb-item">{{date('Y')}}</div>
     <div class="breadcrumb-item">Semester {{getSemester()}}</div>
   </div>
@@ -20,7 +20,7 @@
               </div>
             @endforeach    
           @endif
-        <form action="{{route('penilaian.store', $indicator->indicator_id)}}" class="form" method="POST" enctype="multipart/form-data">
+        <form action="{{route('laporan.store', $indicator->indicator_id)}}" class="form" method="POST" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="indicator_id" value="{{$indicator->indicator_id}}">
           <input type="hidden" name="department_id" value="{{$department_id}}">

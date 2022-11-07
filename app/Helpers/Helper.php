@@ -37,13 +37,13 @@ function getSemester(): int
 function isUploaded(int $indicator_id, int $department_id, int $tahun, int $semester)
 {
 
-    $result = DB::table('penilaians')
-        ->select('penilaian_id')
+    $result = DB::table('laporans')
+        ->select('laporan_id')
         ->where('department_id', $department_id)
         ->where('indicator_id', $indicator_id)
         ->whereYear('created_at', $tahun)
         ->where('semester', $semester)
-        ->orderBy('penilaian_id', 'desc')
+        ->orderBy('laporan_id', 'desc')
         ->first();
 
     return $result;
@@ -53,7 +53,7 @@ function getPercentage(int $department_id, int $tahun, int $semester): int
 {
     $result = 0;
     $indicator_count = DB::table('indicators')->count('indicator_id');
-    $penilaian_done = DB::table('penilaians')->where('department_id', $department_id)->whereYear('created_at', $tahun)->where('semester', $semester)->count('penilaian_id');
+    $penilaian_done = DB::table('laporans')->where('department_id', $department_id)->whereYear('created_at', $tahun)->where('semester', $semester)->count('laporan_id');
 
     if ($penilaian_done != null && $penilaian_done != 0) {
         $result = round(($penilaian_done / $indicator_count) * 100, 2);

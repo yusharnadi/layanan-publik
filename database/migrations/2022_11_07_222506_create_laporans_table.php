@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penilaians', function (Blueprint $table) {
-            $table->id('penilaian_id');
+        Schema::create('laporans', function (Blueprint $table) {
+            $table->id('laporan_id');
             $table->integer('department_id');
             $table->integer('indicator_id');
             $table->integer('semester');
@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('file_3')->nullable();
             $table->string('file_4')->nullable();
             $table->string('file_5')->nullable();
+            $table->text('hasil_evaluasi')->nullable();
+            $table->text('rekomendasi')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penilaians');
+        Schema::dropIfExists('laporans');
     }
 };

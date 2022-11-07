@@ -1,5 +1,15 @@
 @extends('layouts.admin-master')
-@section('page-heading', 'Laporan Penilaian')
+@section('page-title', 'Laporan Penilaian ')
+@section('page-heading')
+  <h1>Laporan Penilaian</h1>
+  <div class="section-header-breadcrumb">
+    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item">{{$department->department_name}}</div>
+    <div class="breadcrumb-item">{{$tahun}}</div>
+    <div class="breadcrumb-item">Semester {{$semester}}</div>
+  </div>
+@endsection
+
 @section('content')
   <div class="row">
     <div class="col-12">
@@ -28,12 +38,10 @@
                     <td>{{$indicator->indicator_id}}</td>
                     <td>{{$indicator->aspect_name}}</td>
                     <td>{{$indicator->indicator_code . ' '.$indicator->indicator_name}}</td>
-                    <td>{!! isUploaded($indicator->indicator_id, $department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
+                    <td>{!! isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
                     <td>
-                      @if ($penilaian = isUploaded($indicator->indicator_id, $department_id, $tahun, $semester) )
-                        <a href="{{route('penilaian.edit', $penilaian->penilaian_id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>    
-                      @else
-                        <a href="{{route('penilaian.create', $indicator->indicator_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+                      @if ($laporan = isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) )
+                        <a href="{{route('laporan.detail', $laporan->laporan_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
                       @endif
                     </td>
                 </tr>

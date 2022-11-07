@@ -3,8 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\IndicatorController;
-use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\laporanController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,13 +19,18 @@ Route::middleware('auth')->group(function () {
     Route::resource('/department', DepartmentController::class);
     Route::resource('/users', UserController::class);
 
-    Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
-    Route::get('/penilaian/{id}/create', [PenilaianController::class, 'create'])->name('penilaian.create');
-    Route::post('/penilaian/{id}/store', [PenilaianController::class, 'store'])->name('penilaian.store');
-    Route::get('/penilaian/{id}/edit', [PenilaianController::class, 'edit'])->name('penilaian.edit');
-    Route::put('/penilaian/{id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
-    Route::get('/penilaian/{id}/department/{tahun}/{semester}', [PenilaianController::class, 'penilaianDepartment'])->name('penilaian.department');
-    Route::get('/penilaian/{id}/detail', [PenilaianController::class, 'penilaianDetail'])->name('penilaian.detail');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/{id}/create', [LaporanController::class, 'create'])->name('laporan.create');
+    Route::post('/laporan/{id}/store', [LaporanController::class, 'store'])->name('laporan.store');
+    Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
+    Route::put('/laporan/{id}/update', [LaporanController::class, 'update'])->name('laporan.update');
+    Route::get('/laporan/{id}/department/{tahun}/{semester}', [LaporanController::class, 'laporanDepartment'])->name('laporan.department');
+    Route::get('/laporan/{id}/detail', [LaporanController::class, 'laporanDetail'])->name('laporan.detail');
+
+    Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
+    Route::get('/evaluasi/{id}/department/{tahun}/{semester}', [EvaluasiController::class, 'monevDepartment'])->name('evaluasi.department');
+    Route::get('/evaluasi/{id}/detail', [EvaluasiController::class, 'monevDetail'])->name('evaluasi.detail');
+    Route::post('/evaluasi/{id}/store', [EvaluasiController::class, 'store'])->name('evaluasi.store');
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');

@@ -60,7 +60,21 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "5.a.K",
             "indicator_name" => "Pemenuhan siklus Maklumat Pelayanan (Ketersediaan penetapan, dan publikasi)",
-            "indicator_description" => "",
+            "indicator_description" => "<ul>
+            <li>Maklumat Pelayanan adalah pernyataan tertulis yang berisi keseluruhan rincian kewajiban dan janji pemberi layanan untuk memenuhi SP, serta kesiapan menerima sanksi bila melanggar sesuai dengan peraturan perundang-undangan. Hal-hal yang perlu dimuat dalam maklumat pelayanan adalah:
+            <ol>
+            <li>Pernyataan janji dan kesanggupan untuk melaksanakan pelayanan sesuai dengan standar pelayanan;</li>
+            <li>Pernyataan memberikan pelayanan sesuai dengan kewajiban dan akan melakukan perbaikan secara terus menerus;</li>
+            <li>Pernyataan kesediaan untuk menerima sanksi, dan/atau memberikan kompensasi apabila pelayanan yang diberikan tidak sesuai standar.</li>
+            </ol>
+            </li>
+            <li>Maklumat Pelayanan dapat diakses melalui publikasi di:
+            <ol>
+            <li>Media Cetak / Non Elektronik. Media yang termasuk didalamnya yakni brosur, leaflet, majalah, pamphlet, buku saku, papan pengumuman dan sejenisnya;</li>
+            <li>Media Elektronik. Media yang termasuk didalamnya yakni TV, layar monitor, kiosk, dan sejenisnya.</li>
+            </ol>
+            </li>
+            </ul>",
             "indicator_visibility" => 0,
             "doc_1" => "Dokumen Pengesahan Maklumat Pelayanan",
             "doc_2" => "Foto atau screenshoot dari berbagai bentuk Publikasi Maklumat Pelayanan yang dimiliki",
@@ -80,7 +94,17 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "7.a.T",
             "indicator_name" => "Jumlah media publikasi hasil SKM",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Publikasi informasi SKM adalah tersedianya informasi terkait metode, proses, dan hasil SKM untuk diketahui seluruh lapisan masyarakat. Media Publikasi dapat diakses melalui:</p>
+            <div>
+            <ol>
+            <li>Media Cetak / Non Elektronik. Media yang termasuk didalamnya yakni brosur, leaflet, majalah, pamphlet, buku saku, papan pengumuman dan sejenisnya.</li>
+            <li>Media Elektronik. Media yang termasuk didalamnya yakni TV, layar monitor, kiosk, dan sejenisnya.</li>
+            <li>Media sosial. Media yang termasuk didalamnya yakni Facebook, Instagram, Twitter, WhatsApp, dan sejenisnya.</li>
+            <li>Website. Media yang termasuk di dalamnya yakni website, dan subsite.</li>
+            <li>Aplikasi yang bisa diunduh.</li>
+            <li>Papan reklame: Videotron/billboard/baliho/media sejenis lainnya.</li>
+            </ol>
+            </div>",
             "indicator_visibility" => 0,
             "doc_1" => "Foto atau Screenshoot dari berbagai bentuk publikasi hasil SKM",
             "aspect_id" => 1
@@ -89,7 +113,9 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "8.a.Ak",
             "indicator_name" => "Persentase rencana tindak lanjut hasil SKM yang telah selesai ditindaklanjuti",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Tindak lanjut Hasil SKM adalah hasil survei yang diolah, dianalisis yang menghasilkan rekomendasi yang kemudian dijadikan referensi kebijakan perbaikan layanan. Hasil SKM seluruh jenis pelayanan dalam bentuk saran dan rekomendasi ditindaklanjuti dan dipergunakan sebagai acuan perbaikan layanan dan kebijakan layanan oleh oimpinan daerah maupun pimpinan penyelenggara.</p>
+            <p>Ruang Lingkup SKM meliputi: persyaratan, prosedur, waktu, produk pelayanan, biaya, kompetensi, perilaku dan maklumat pelayanan serta pengelolaan pengaduan (merujuk pada peraturan Menteri yang berlaku).</p>
+            <p>Cara mengukur persentase : (realisasi rencana tindak lanjut : jumlah rencana tindak lanjut) x 100</p>",
             "indicator_visibility" => 0,
             "doc_1" => "Laporan SKM tahun n-1 yang memuat rencana tindak lanjut",
             "doc_2" => "Laporan hasil pelaksanaan tindak lanjut hasil SKM",
@@ -99,7 +125,7 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "9.a.Ak",
             "indicator_name" => "Kecepatan tindak lanjut hasil SKM seluruh jenis pelayanan",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Kecepatan tindak lanjut rekomendasi hasil SKM guna melihat keseriusan UPP dalam melaksanakan SKM. Apakah hasil SKM segera ditindaklanjuti atau tidak. Adapun kecepatan tindak lanjut ini dilihat dari laporan pelaksanaan SKM oleh unit pelayanan pada 2 tahun terakhir serta laporan tindak lanjutnya.</p>",
             "indicator_visibility" => 0,
             "doc_1" => "Laporan hasil pelaksanaan SKM pada 2 tahun terakhir yang memuat rencana tindak lanjut",
             "doc_2" => "Laporan pelaksanaan tindak lanjut dari poin pertama",
@@ -110,7 +136,15 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "10.b.As",
             "indicator_name" => "Tersedia waktu pelayanan yang memudahkan pengguna layanan.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Bentuk penyesuaian waktu pelayanan dapat berupa:</p>
+            <ol>
+            <li>memiliki kebijakan jam pelayanan/kerja berupa surat keputusan, peraturan yang berlaku, dan sejenisnya.</li>
+            <li>Tidak ada jeda pelayanan yang berarti istirahat pegawai dilakukan secara bergilir (shift) yang dapat dibuktikan dari publikasi jam layanan kepada masyrakat.</li>
+            <li>Penambahan waktu layanan <strong>di luar jam</strong> pelayanan yang sudah ditentukan (masih dihari kerja).</li>
+            <li>Penambahan waktu layanan diluar hari kerja namun dalam <strong>kondisi tertentu</strong> (Misal: Pembukaan CPNS, LAPOR SPT Tahunan).</li>
+            <li>Penambahan waktu layanan diluar hari kerja namun secara rutin.</li>
+            <li>Layanan 24 jam: layanan yang merupakan inti pelayanan dan pendaftaran. <strong>Tidak termasuk</strong> layanan konsultasi dan informasi.</li>
+            </ol>",
             "indicator_visibility" => 0,
             "doc_1" => "Surat perintah lembur (nota dinas/memo/dll)",
             "doc_2" => "Surat Tugas pemberian palayanan pada hari libur",
@@ -121,7 +155,7 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "11.b.K",
             "indicator_name" => "Tersedia Kode Etik dan Kode Perilaku Pelaksana dan/ atau Budaya Pelayanan di lingkungan instansi.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Aturan Perilaku dan Kode Etik Pelaksana adalah pedoman sikap, perilaku, perbuatan, tulisan dan ucapan pegawai, serta hak dan kewajiban pelaksana layanan dalam menjalankan tugas -tugas pelayanan kepada pengguna layanan. Unsur kode etik meliputi: (1) Hak dan kewajiban, (2) larangan KKn, (3) larangan diskriminasi, (4) sanksi, (5) penghargaan.</p>",
             "indicator_visibility" => 0,
             "doc_1" => "Dokumen kode etik dan kode perilaku",
             "aspect_id" => 2
@@ -130,7 +164,17 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "12.b.AK",
             "indicator_name" => "Tersedia mekanisme yang dibangun untuk menjaga dan meningkatkan motivasi kerja Pelaksana pelayanan",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Motivasi Kerja dapat diartikan sebagai daya pendorong/penggerak yang menciptakan kemauan Pelaksana pelayanan untuk bekerja secara efektif, dan terintegrasi dengan segala daya upaya nya untuk menciptakan kepuasan pengguna layanan.</p>
+            <p>Jenis mekanisme untuk meningkatkan motivasi kerja dapat berupa:</p>
+            <ol>
+            <li>pemberian penghargaan;</li>
+            <li>pemberian kesempatan untuk mengikuti diklat;</li>
+            <li>Pengembangan kapasitas melalui kesempatan mengikuti program beasiswa;</li>
+            <li>program konseling;</li>
+            <li>program tim/capacity building;</li>
+            <li>mekanisme lainnya yang dapat meningkatkan motivasi kerja pegawai.</li>
+            </ol>
+            <p>Bukti dukung yang disampaikan paling tidak dalam jangka waktu 1 tahun terakhir.</p>",
             "indicator_visibility" => 0,
             "doc_1" => "Dokumen mengenai mekanisme motivasi kerja (Pemberian penghargaan, sertifikat diklat, surat rekomendasi beasiswa, jadwal program konseling, foto kegiatan team/ capacity building dll)",
             "aspect_id" => 2
@@ -139,7 +183,14 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "13.b.K",
             "indicator_name" => "Tersedia kriteria pemberian penghargaan bagi pegawai yang berprestasi.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Dalam melaksanakan kegiatan pemberian penghargaan, ada kriteria-kriteria tertentu yang digunakan unit layanan sebagai dasar pelaksanaan kegiatan. Kriteria pemberian penghargaan adalah ukuran /indikator yang digunakan oleh UPP dalam menilai/ menetukan prestasi petugas pelayanan yang dapat terdiri dari unsur:</p>
+            <ol>
+            <li>Kehadiran;&nbsp;<br />Kinerja : kualitas hasil kerja yaitu menyelesaikan tugas sesuai dengan ketentuan yang diberikan atasan;</li>
+            <li>Kerja sama;</li>
+            <li>Inovatif/kreatif: kemampuan mengeluarkan ide;</li>
+            <li>Penampilan: penggunaan atribut, pakaian, dll yang sudah ditetapkan;</li>
+            <li>Tidak pernah menerima komplain dari pengguna layanan yang bersifat personal.</li>
+            </ol>",
             "indicator_visibility" => 0,
             "doc_1" => "Lampirkan SK yang mengatur mengenai pemberian penghargaan.",
             "aspect_id" => 2
@@ -148,7 +199,13 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "14.b.K",
             "indicator_name" => "Tersedia pelaksana yang menerapkan budaya pelayanan.",
-            "indicator_description" => "",
+            "indicator_description" => "<ul>
+            <li>Seragam: pakaian/atribut yang membedakan antara petugas layanan dan masyarakat/pengguna layanan.</li>
+            <li>Identitas nama dapat berupa name tag. ID card, dan sejenisnya.</li>
+            <li>PIN/atribut/logo unit pelayanan merupakan berbagai atribut khas unit pelayanan yang dikenakan oleh pegawai, misalnya pin petugas pelayanan, selempang dan sebagainya.</li>
+            <li>Aturan penerapan 5S yaitu aturan/kebijakan terkait penerapan 5S oleh pegawai/petugas layanan yang berlaku.</li>
+            <li>Nilai-nilai budaya layanan bisa dalam bentuk slogan, motto,maskot,dan sebagainya.</li>
+            </ul>",
             "indicator_visibility" => 0,
             "doc_1" => "Lampirkan foto bukti dukung (pegawai menerapkan budaya pelayanan)",
             "aspect_id" => 2
@@ -157,7 +214,16 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "15.c.K",
             "indicator_name" => "Tersedia tempat parkir dengan fasilitas pendukung yang memadai.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Sarana tempat parkir adalah sarana pendukung yang terdiri dari fasilitas dan petugas khusus yang memberikan layanan tempat, keamanan kendaraan, serta kenyamanan kepada masyarakat, dengan akses yang mudah dan perlakuan sama, tidak diskriminatif, dan ada perlakuan khusus bagi kelompok berkebutuhan khusus. Fasilitas pendukung sebagai berikut:</p>
+            <ol>
+            <li>Ketersediaan parkir roda dua dan roda empat: terdapat permisahan yang jelas antara kendaraan roda 2 dan 4 yang diberikan marka.</li>
+            <li>Petugas parkir: terdapat petugas parkir yang berjaga di area parkir.</li>
+            <li>Pemeriksaan karcis/kartu parkir: setiap pengunjung diberikan kartu/karcis sebagai bukti kepemilikan kendaraan yang digunakan.</li>
+            <li>CCTV: lokasi parkir dilengkapi dengan CCTV yang aktif dan dipantau melalui monitor.</li>
+            <li>Penitipan jaket/helm.</li>
+            <li>Pelindung (Kanopi/atap bahan lain)</li>
+            <li>Drive Thru.</li>
+            </ol>",
             "indicator_visibility" => 0,
             "doc_1" => "Foto tempat parkir dan seluruh fasilitas parkir yang ada.",
             "aspect_id" => 3
@@ -166,7 +232,21 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "16.c.As",
             "indicator_name" => "Tersedia ruang tunggu dengan fasilitas wajib dan pelengkap.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Fasilitas wajib adalah fasilitas minimal yang harus ada di ruang tunggu, meliputi (harus dipenuhi keduanya):</p>
+            <ol>
+            <li>Kursi tunggu;</li>
+            <li>Pendingin /sirkulasi ruangan: terdapat pendingin ruangan yang berupa AC/Kipas angin atau ruang tunggu memiliki sirkulasi udara yang baik.</li>
+            </ol>
+            <p>Sedangkan fasilitas pelengkap adalah berbagai fasilitas yang diharapkan dapat dilengkapi oleh unit layanan dalam rangka menambah kenyamanan pengguna layanan dalam bertransaksi dengan unit layanan. Fasilitas pelengkap meliputi:</p>
+            <ol>
+            <li>Mesin antrian dilengkapi monitor: terdapat monitor/layar atau keterangan yang menjelaskan nomor antrian yang sedang dilayani.</li>
+            <li>Televisi: ruang tunggu dilengkapi yang menyala sebagai bentuk fasilitas bagi pengguna layanan yang sedang menunggu antrian.</li>
+            <li>Bahan bacaan: terdapat bahan bacaan yang dapat digunakan pengguna layanan seperti majalah, koran, buku, dll.</li>
+            <li>Pengisi daya baterai alat komunikasi/charger booth: terdapat sumber listrik yang dapat digunakan pengguna layanan untuk melakukan pengisi daya alat komunikasi.</li>
+            <li>Hotspot/wifi: terdapat hotspot/wifi yang aktif dan dapat digunakan oleh pengguna layanan</li>
+            <li>Air minum: disediakan air minum bagi pengguna layanan baik berupa kemasan atau galon.</li>
+            <li>Hal-hal lainnya yang mendukung kenyamanan ruang tunggu.</li>
+            </ol>",
             "indicator_visibility" => 0,
             "doc_1" => "Foto / video ruang tunggu dan seluruh fasilitas ruang tunggu yang ada.",
             "aspect_id" => 3
@@ -175,7 +255,16 @@ class IndicatorSeeder extends Seeder
         Indicator::create([
             "indicator_code" => "17.c.As",
             "indicator_name" => "Tersedia sarana toilet pengguna layanan yang layak pakai.",
-            "indicator_description" => "",
+            "indicator_description" => "<p>Sarana toilet pengguna layanan yang layak pakai adalah fasilitas toilet yang diperuntukan khusu bagi pengguna layanan yang senantiasa terjaga kebersihannya, dengan memperhatikan ketersediaan air bersih, toiletries yang cukup memadai, serta memperhatikan privacy.</p>
+            <p>Kondisi pada toilet layak pakai:</p>
+            <ol>
+            <li>Ketersediaan toilet pria dan wanita: terdapat pemisahan antara toilet pria dan wanita.</li>
+            <li>Wastafel: terdapat wastafel dengan kran air yang berfungsi dengan baik.</li>
+            <li>Toiletries: fasilitas penunjang dalam toilet yang meliputi tissue, sabun, tempat sampa, dll.</li>
+            <li>Air bersih.</li>
+            <li>Monev intensitas petugas membersihkan toilet.</li>
+            <li>Fasilitas lain yang mendukung.</li>
+            </ol>",
             "indicator_visibility" => 0,
             "doc_1" => "Foto / video toilet pengguna layanan dan seluruh fasilitas yang ada.",
             "aspect_id" => 3

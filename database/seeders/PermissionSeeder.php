@@ -34,6 +34,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update penilaian']);
         Permission::create(['name' => 'delete penilaian']);
 
+        Permission::create(['name' => 'read laporan']);
+        Permission::create(['name' => 'create laporan']);
+        Permission::create(['name' => 'update laporan']);
+        Permission::create(['name' => 'delete laporan']);
+
         Permission::create(['name' => 'read user']);
         Permission::create(['name' => 'create user']);
         Permission::create(['name' => 'update user']);
@@ -44,14 +49,23 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update role']);
         Permission::create(['name' => 'delete role']);
 
+        Permission::create(['name' => 'read monev']);
+        Permission::create(['name' => 'create monev']);
+        Permission::create(['name' => 'update monev']);
+        Permission::create(['name' => 'delete monev']);
+
         // create roles and assign created permissions
         // this can be done as separate statements
-        Role::create(['name' => 'evaluator']);
+        $evaluator = Role::create(['name' => 'Evaluator']);
+        $evaluator->syncPermissions(['read monev', 'create monev', 'update monev', 'delete monev', 'read laporan', 'create laporan', 'update laporan', 'delete laporan', 'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian']);
 
-        $user = Role::create(['name' => 'user']);
-        $user->syncPermissions(['read penilaian', 'create penilaian', 'update penilaian']);
+        Role::create(['name' => 'Pimpinan']);
+        Role::create(['name' => 'Quality Assurance']);
 
-        $role = Role::create(['name' => 'administrator']);
+        $user = Role::create(['name' => 'User']);
+        $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev']);
+
+        $role = Role::create(['name' => 'Administrator']);
         $role->givePermissionTo(Permission::all());
     }
 }

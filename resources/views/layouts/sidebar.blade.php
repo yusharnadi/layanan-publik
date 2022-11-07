@@ -17,8 +17,12 @@
       <li class="menu-header">Transaction Data</li>
       @endcan
 
-      @can("read penilaian")
-      <li class="{{set_active('penilaian.*')}}"><a class="nav-link" href="{{ route('penilaian.index') }}"><i class="fas fa-book"></i><span>Laporan Penilaian</span></a></li>
+      @can("read laporan")
+      <li class="{{set_active('laporan.*')}}"><a class="nav-link" href="{{ route('laporan.index') }}"><i class="fas fa-book"></i><span>Laporan</span></a></li>
+      @endcan
+
+      @can("read monev")
+      <li class="{{set_active('evaluasi.*')}}"><a class="nav-link" href="{{ route('evaluasi.index') }}"><i class="fas fa-vote-yea"></i><span>Monev</span></a></li>
       @endcan
 
       @can("read user")

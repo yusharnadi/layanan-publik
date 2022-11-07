@@ -1,9 +1,9 @@
 @extends('layouts.admin-master')
-@section('page-title', 'Laporan Penilaian ')
+@section('page-title', 'Monev')
 @section('page-heading')
-  <h1>Laporan Penilaian</h1>
+  <h1>Monev</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Monev</a></div>
     <div class="breadcrumb-item">{{$tahun}}</div>
     <div class="breadcrumb-item">Semester {{$semester}}</div>
   </div>
@@ -13,7 +13,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body table-responsive">
-          <form method="get" action="{{route('penilaian.index')}}">
+          <form method="get" action="{{route('evaluasi.index')}}">
             <div class="row mt-4">
               <div class="form-group col-sm-2">
                 <label for="tahun">Tahun</label>
@@ -50,7 +50,6 @@
                 <th style="width: 10px;">ID</th>
                 <th>Nama Department</th>
                 <th>Nama Lengkap Department</th>
-                <th>Persentase</th>
                 <th style="width: 20px;">#</th>
               </tr>
             </thead>
@@ -61,13 +60,7 @@
                     <td>{{$department->department_name}}</td>
                     <td>{{$department->department_fullname}}</td>
                     <td>
-                      <div class="progress">
-                        <div class="progress-bar {{getPercentage($department->department_id, $tahun, $semester) == 100 ? 'bg-success':''}}" role="progressbar" data-width="{{getPercentage($department->department_id, $tahun, $semester)}}%" aria-valuenow="{{getPercentage($department->department_id, $tahun, $semester)}}" aria-valuemin="0" aria-valuemax="100">{{getPercentage($department->department_id, $tahun, $semester)}}%</div>
-                      </div>
-                    </td>
-                    <td>
-                        <a href="{{route('penilaian.department', [$department->department_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
-                        {{-- <a href="{{route('department.delete', $department->department_id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
+                        <a href="{{route('evaluasi.department', [$department->department_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
                     </td>
                 </tr>
             @endforeach

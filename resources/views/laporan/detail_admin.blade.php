@@ -3,8 +3,8 @@
 @section('page-heading')
   <h1>Detail Laporan Penilaian</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('penilaian.index')}}">Laporan Penilaian</a></div>
-    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$penilaian->department_name}}</a></div>
+    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Laporan Penilaian</a></div>
+    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$laporan->department_name}}</a></div>
     {{-- <div class="breadcrumb-item">{{$tahun}}</div> --}}
     {{-- <div class="breadcrumb-item">Semester {{$semester}}</div> --}}
   </div>
@@ -25,55 +25,55 @@
             <thead>
               <tr>
                 <th>Indikator</th>
-                <th>{{$penilaian->indicator_name}}</th>
+                <th>{{$laporan->indicator_name}}</th>
               </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>ULP</td>
-                    <td><strong>{{$penilaian->department_fullname}}</strong></td>
+                    <td><strong>{{$laporan->department_fullname}}</strong></td>
                 </tr>
                 <tr>
                     <td>PIC</td>
-                    <td>{{$penilaian->nip . ' - ' . $penilaian->name}}</td>
+                    <td>{{$laporan->nip . ' - ' . $laporan->name}}</td>
                 </tr>
                 <tr>
                     <td>Tahun</td>
-                    <td>{{$th = explode('-',$penilaian->created_at)[0]}}</td>
+                    <td>{{$th = explode('-',$laporan->created_at)[0]}}</td>
                 </tr>
                 <tr>
                     <td>Semester</td>
-                    <td>{{$penilaian->semester}}</td>
+                    <td>{{$laporan->semester}}</td>
                 </tr>
-                @if ($penilaian->doc_1 != '')
+                @if ($laporan->doc_1 != '')
                 <tr>
                     <td>Dokumen #1</td>
                     <td>
-                        <a href="{{asset('uploads/'.$penilaian->file_1)}}" target="_blank">{{$penilaian->doc_1}}</a>
+                        <a href="{{asset('uploads/'.$laporan->file_1)}}" target="_blank">{{$laporan->doc_1}}</a>
                     </td>
                 </tr>
                 @endif
-                @if ($penilaian->doc_2 != '')
+                @if ($laporan->doc_2 != '')
                 <tr>
                     <td>Dokumen #2</td>
                     <td>
-                        <a href="{{asset('uploads/'.$penilaian->file_2)}}" target="_blank">{{$penilaian->doc_2}}</a>
+                        <a href="{{asset('uploads/'.$laporan->file_2)}}" target="_blank">{{$laporan->doc_2}}</a>
                     </td>
                 </tr>
                 @endif
-                @if ($penilaian->doc_3 != '')
+                @if ($laporan->doc_3 != '')
                 <tr>
                     <td>Dokumen #3</td>
                     <td>
-                        <a href="{{asset('uploads/'.$penilaian->file_3)}}" target="_blank">{{$penilaian->doc_3}}</a>
+                        <a href="{{asset('uploads/'.$laporan->file_3)}}" target="_blank">{{$laporan->doc_3}}</a>
                     </td>
                 </tr>
                 @endif
-                @if ($penilaian->doc_4 != '')
+                @if ($laporan->doc_4 != '')
                 <tr>
                     <td>Dokumen #4</td>
                     <td>
-                        <a href="{{asset('uploads/'.$penilaian->file_4)}}" target="_blank">{{$penilaian->doc_4}}</a>
+                        <a href="{{asset('uploads/'.$laporan->file_4)}}" target="_blank">{{$laporan->doc_4}}</a>
                     </td>
                 </tr>
                 @endif
