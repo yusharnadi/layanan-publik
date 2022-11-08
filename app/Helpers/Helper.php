@@ -49,6 +49,22 @@ function isUploaded(int $indicator_id, int $department_id, int $tahun, int $seme
     return $result;
 }
 
+function isEvaluated(int $indicator_id, int $department_id, int $tahun, int $semester)
+{
+
+    $result = DB::table('laporans')
+        ->select('laporan_id')
+        ->where('department_id', $department_id)
+        ->where('indicator_id', $indicator_id)
+        ->whereYear('created_at', $tahun)
+        ->where('semester', $semester)
+        ->where('hasil_evaluasi', '!=', 'null')
+        ->orderBy('laporan_id', 'desc')
+        ->first();
+
+    return $result;
+}
+
 function getPercentage(int $department_id, int $tahun, int $semester): int
 {
     $result = 0;
