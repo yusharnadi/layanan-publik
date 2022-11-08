@@ -40,7 +40,7 @@ class EvaluasiController extends Controller
 
     public function monevDepartment(int $department_id, int $tahun, int $semester)
     {
-        if (!Auth::user()->can('delete laporan')) abort(403);
+        if (!Auth::user()->can('update monev')) abort(403);
 
         $indicators = $this->indicatorService->findAll();
         $department = $this->departmentService->findById($department_id);
@@ -50,7 +50,7 @@ class EvaluasiController extends Controller
 
     public function  monevDetail(int $laporan_id)
     {
-        if (!Auth::user()->can('delete laporan')) abort(403);
+        if (!Auth::user()->can('update monev')) abort(403);
 
         $laporan =  $this->laporanService->findById($laporan_id);
 
@@ -61,9 +61,22 @@ class EvaluasiController extends Controller
         return view('evaluasi.detail_admin', ['laporan' => $laporan]);
     }
 
+    public function  monevDetailUser(int $laporan_id)
+    {
+        if (!Auth::user()->can('read monev')) abort(403);
+
+        $laporan =  $this->laporanService->findById($laporan_id);
+
+        if ($laporan == null) {
+            abort(404);
+        }
+
+        return view('evaluasi.detail', ['laporan' => $laporan]);
+    }
+
     public function store(Request $request, int $laporan_id)
     {
-        if (!Auth::user()->can('delete laporan')) abort(403);
+        if (!Auth::user()->can('create monev')) abort(403);
 
         $request->validate(
             [

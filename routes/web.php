@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
     Route::get('/evaluasi/{id}/department/{tahun}/{semester}', [EvaluasiController::class, 'monevDepartment'])->name('evaluasi.department');
     Route::get('/evaluasi/{id}/detail', [EvaluasiController::class, 'monevDetail'])->name('evaluasi.detail');
+    Route::get('/evaluasi/{id}/detail-user', [EvaluasiController::class, 'monevDetailUser'])->name('evaluasi.detail-user');
     Route::post('/evaluasi/{id}/store', [EvaluasiController::class, 'store'])->name('evaluasi.store');
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
