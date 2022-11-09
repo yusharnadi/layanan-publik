@@ -52,14 +52,14 @@ function isUploaded(int $indicator_id, int $department_id, int $tahun, int $seme
 function isEvaluated(int $indicator_id, int $department_id, int $tahun, int $semester)
 {
 
-    $result = DB::table('laporans')
-        ->select('laporan_id')
+    $result = DB::table('evaluasis')
+        ->select('evaluasi_id')
         ->where('department_id', $department_id)
         ->where('indicator_id', $indicator_id)
-        ->whereYear('created_at', $tahun)
+        ->where('tahun', $tahun)
         ->where('semester', $semester)
         ->where('hasil_evaluasi', '!=', 'null')
-        ->orderBy('laporan_id', 'desc')
+        ->orderBy('evaluasi_id', 'desc')
         ->first();
 
     return $result;
