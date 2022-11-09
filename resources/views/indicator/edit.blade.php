@@ -71,16 +71,6 @@
                 </select>
             </div>
           </div>
-          <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Visibilitas</label>
-            <div class="col-sm-5 col-md-3">
-                <select name="indicator_visibility" class="form-control" required>
-                    <option value="">--- Pilih Visibilitas ---</option>
-                    <option value="0" {{($indicator->indicator_visibility == 0) ? 'selected':''}}>Publik</option>
-                    <option value="1" {{($indicator->indicator_visibility == 1) ? 'selected':''}}>Private</option>
-                </select>
-            </div>
-          </div>
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
             <div class="col-sm-12 col-md-7">

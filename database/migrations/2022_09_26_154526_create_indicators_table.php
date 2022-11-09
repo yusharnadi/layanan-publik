@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('indicator_code');
             $table->text('indicator_name');
             $table->text('indicator_description');
-            $table->tinyInteger('indicator_visibility');
             $table->string('doc_1');
             $table->string('doc_2')->nullable();
             $table->string('doc_3')->nullable();

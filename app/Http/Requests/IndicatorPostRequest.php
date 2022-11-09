@@ -27,7 +27,6 @@ class IndicatorPostRequest extends FormRequest
             'indicator_code' => 'required',
             'indicator_name' => 'required',
             'indicator_description' => 'required',
-            'indicator_visibility' => 'required',
             'aspect_id' => 'required',
             'doc_1' => 'required',
             'doc_2' => '',
