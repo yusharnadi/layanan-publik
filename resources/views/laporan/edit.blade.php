@@ -26,7 +26,6 @@
           <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Indikator</label>
             <div class="col-sm-12 col-md-9">
-              {{-- <input type="text" name="indicator_name" class="form-control" value="{{$indicator->indicator_name}}" readonly> --}}
              <textarea name="indicator_name" class="form-control" style="height: 60px" disabled>{{old("indicator_name") ?? $laporan->indicator_name}}</textarea>
             </div>
           </div>

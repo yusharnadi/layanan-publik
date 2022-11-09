@@ -22,9 +22,6 @@ return new class extends Migration
             $table->string('file_2')->nullable();
             $table->string('file_3')->nullable();
             $table->string('file_4')->nullable();
-            $table->string('file_5')->nullable();
-            $table->text('hasil_evaluasi')->nullable();
-            $table->text('rekomendasi')->nullable();
             $table->timestamps();
         });
     }

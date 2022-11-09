@@ -22,6 +22,21 @@ class LaporanService
         return $result;
     }
 
+    public function findActive(int $department_id, int $indicator_id, int $tahun, int $semester)
+    {
+        return DB::table('laporans')
+            ->select('laporans.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname', 'doc_1', 'doc_2', 'doc_3', 'doc_4', 'nip', 'name')
+            ->join('indicators', 'indicators.indicator_id', '=', 'laporans.indicator_id')
+            ->join('departments', 'departments.department_id', '=', 'laporans.department_id')
+            ->join('users', 'users.department_id', '=', 'departments.department_id')
+            ->where('departments.department_id', $department_id)
+            ->where('laporans.indicator_id', $indicator_id)
+            ->whereYear('laporans.created_at', $tahun)
+            ->where('laporans.semester', $semester)
+            ->orderBy('laporans.laporan_id', 'desc')
+            ->first();
+    }
+
     public function insert(array $data)
     {
         $file_1 = null;
@@ -112,13 +127,5 @@ class LaporanService
     private function deleteFile($file)
     {
         return File::delete(public_path("uploads/" . $file));
-    }
-
-    public function insertMonev(int $id, array $data): void
-    {
-        $laporan = Laporan::find($id);
-        $laporan->hasil_evaluasi = $data['hasil_evaluasi'];
-        $laporan->rekomendasi = $data['rekomendasi'];
-        $laporan->save();
     }
 }
