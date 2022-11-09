@@ -3,8 +3,8 @@
 @section('page-heading')
   <h1>Monev Laporan</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Monev</a></div>
-    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$laporan->department_name}}</a></div>
+    <div class="breadcrumb-item"><a href="{{route('evaluasi.index')}}">Monev</a></div>
+    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$department->department_name}}</a></div>
     {{-- <div class="breadcrumb-item">{{$tahun}}</div> --}}
     {{-- <div class="breadcrumb-item">Semester {{$semester}}</div> --}}
   </div>
@@ -31,23 +31,23 @@
             <thead>
               <tr>
                 <th>Indikator</th>
-                <th>{{$laporan->indicator_name}}</th>
+                <th>{{$indicator->indicator_name}}</th>
               </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>ULP</td>
-                    <td><strong>{{$laporan->department_fullname}}</strong></td>
+                    <td><strong>{{$department->department_fullname}}</strong></td>
                 </tr>
                 <tr>
                     <td>Tahun</td>
-                    <td>{{$th = explode('-',$laporan->created_at)[0]}}</td>
+                    <td>{{$tahun}}</td>
                 </tr>
                 <tr>
                     <td>Semester</td>
-                    <td>{{$laporan->semester}}</td>
+                    <td>{{$semester}}</td>
                 </tr>
-                @if ($laporan->doc_1 != '')
+                @if (isset($laporan) && $laporan->doc_1 != '')
                 <tr>
                     <td>Dokumen #1</td>
                     <td>
@@ -55,7 +55,7 @@
                     </td>
                 </tr>
                 @endif
-                @if ($laporan->doc_2 != '')
+                @if (isset($laporan) && $laporan->doc_2 != '')
                 <tr>
                     <td>Dokumen #2</td>
                     <td>
@@ -63,7 +63,7 @@
                     </td>
                 </tr>
                 @endif
-                @if ($laporan->doc_3 != '')
+                @if (isset($laporan) && $laporan->doc_3 != '')
                 <tr>
                     <td>Dokumen #3</td>
                     <td>
@@ -71,7 +71,7 @@
                     </td>
                 </tr>
                 @endif
-                @if ($laporan->doc_4 != '')
+                @if (isset($laporan) && $laporan->doc_4 != '')
                 <tr>
                     <td>Dokumen #4</td>
                     <td>
@@ -79,31 +79,100 @@
                     </td>
                 </tr>
                 @endif
+                <tr>
+                  <td>Keterangan</td>
+                  <td>{!!$indicator->indicator_description !!}</td>
+                </tr>
             </tbody>
         </table>
-        <form action="{{route('evaluasi.store', $laporan->laporan_id)}}" method="post">
+        @if (isset($evaluasi))
+          <form action="{{route('evaluasi.update', $evaluasi->evaluasi_id)}}" method="post">
             @csrf
+            @method('PUT')
+
+            <input type="hidden" name="indicator_id" value="{{$indicator->indicator_id}}">
+            <input type="hidden" name="department_id" value="{{$department->department_id}}">
+            <input type="hidden" name="tahun" value="{{$tahun}}">
+            <input type="hidden" name="semester" value="{{$semester}}">
             <div class="form-group">
                 <label>Hasil Evaluasi</label>
-                <textarea name="hasil_evaluasi" class="form-control" style="height: 100px" required>{{$laporan->hasil_evaluasi}}</textarea>
+                <textarea name="hasil_evaluasi" id="hasil_evaluasi" class="form-control" style="height: 100px" required>{{$evaluasi->hasil_evaluasi ?? ''}}</textarea>
             </div>
             <div class="form-group">
                 <label>Rekomendasi</label>
-                <textarea name="rekomendasi" class="form-control" style="height: 100px" required>{{$laporan->rekomendasi}}</textarea>
+                <textarea name="rekomendasi" id="rekomendasi" class="form-control" style="height: 100px" required>{{$evaluasi->rekomendasi ?? ''}}</textarea>
             </div>
             <div class="form-group">
-                <a href="{{route('evaluasi.department', [$laporan->department_id, explode('-',$laporan->created_at)[0], $laporan->semester, ])}}" class="btn btn-icon btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <a href="{{route('evaluasi.department', [$department->department_id, $tahun, $semester, ])}}" class="btn btn-icon btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
-        </form>
+          </form>
+        @else
+          <form action="{{route('evaluasi.store')}}" method="post">
+            @csrf
+            <input type="hidden" name="indicator_id" value="{{$indicator->indicator_id}}">
+            <input type="hidden" name="department_id" value="{{$department->department_id}}">
+            <input type="hidden" name="tahun" value="{{$tahun}}">
+            <input type="hidden" name="semester" value="{{$semester}}">
+            <div class="form-group">
+                <label>Hasil Evaluasi</label>
+                <textarea name="hasil_evaluasi" id="hasil_evaluasi" class="form-control" style="height: 100px" required>{{$evaluasi->hasil_evaluasi ?? ''}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Rekomendasi</label>
+                <textarea name="rekomendasi" id="rekomendasi" class="form-control" style="height: 100px" required>{{$evaluasi->rekomendasi ?? ''}}</textarea>
+            </div>
+            <div class="form-group">
+                <a href="{{route('evaluasi.department', [$department->department_id, $tahun, $semester, ])}}" class="btn btn-icon btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+        @endif
+       
       </div>
     </div>
   </div>
 </div>
 @endsection
 @push('css-datatables')
+@push('css-datatables')
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endpush
 @push('datatables-js')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+  <script>
+    $(document).ready( function () {
+      $('#hasil_evaluasi').summernote({
+        placeholder: 'Hasil Evaluasi',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          ['view', [, 'codeview']]
+        ]
+      });
+
+      $('#rekomendasi').summernote({
+        placeholder: 'Rekomendasi',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link']],
+          ['view', [, 'codeview']]
+        ]
+      });
+    });
+  </script>
 @endpush
 
 

@@ -38,11 +38,9 @@
                     <td>{{$indicator->indicator_id}}</td>
                     <td>{{$indicator->aspect_name}}</td>
                     <td>{{$indicator->indicator_code . ' '.$indicator->indicator_name}}</td>
-                    <td>{!! isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
+                    <td>{!! isEvaluated($indicator->indicator_id, $department->department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah dievaluasi</span>' : '<span class="badge badge-secondary">Belum dievaluasi</span>'!!}</td>
                     <td>
-                      @if ($laporan = isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) )
-                        <a href="{{route('evaluasi.detail', $laporan->laporan_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
-                      @endif
+                        <a href="{{route('evaluasi.detail', [$department->department_id, $indicator->indicator_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
                     </td>
                 </tr>
             @endforeach

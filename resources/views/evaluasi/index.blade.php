@@ -40,9 +40,7 @@
                     <td>{{$indicator->indicator_code . ' '.$indicator->indicator_name}}</td>
                     <td>{!! isEvaluated($indicator->indicator_id, $department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah dievaluasi</span>' : '<span class="badge badge-secondary">Belum dievaluasi</span>'!!}</td>
                     <td>
-                      @if ($laporan = isEvaluated($indicator->indicator_id, $department_id, $tahun, $semester) )
-                        <a href="{{route('evaluasi.detail-user', $laporan->laporan_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
-                      @endif
+                        <a href="{{route('evaluasi.detail-user', [$indicator->indicator_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
                     </td>
                 </tr>
             @endforeach

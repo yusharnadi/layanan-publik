@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvaluasiPostRequest;
+use App\Http\Requests\EvaluasiUpdateRequest;
 use App\Services\DepartmentService;
+use App\Services\EvaluasiService;
 use App\Services\IndicatorService;
 use App\Services\LaporanService;
-use App\Services\PenilaianService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class EvaluasiController extends Controller
 {
-    public function __construct(private IndicatorService $indicatorService, private LaporanService $laporanService, private DepartmentService $departmentService)
-    {
+    public function __construct(
+        private IndicatorService $indicatorService,
+        private LaporanService $laporanService,
+        private DepartmentService $departmentService,
+        private EvaluasiService $evaluasiService
+    ) {
     }
     public function index(Request $request)
     {
@@ -48,52 +54,73 @@ class EvaluasiController extends Controller
         return view('evaluasi.department', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
     }
 
-    public function  monevDetail(int $laporan_id)
+    public function  monevDetail(int $department_id, int $indicator_id, int $tahun, int $semester)
     {
         if (!Auth::user()->can('update monev')) abort(403);
 
-        $laporan =  $this->laporanService->findById($laporan_id);
+        $indicator =  $this->indicatorService->findById($indicator_id);
+        $department = $this->departmentService->findById($department_id);
+        $laporan = $this->laporanService->findActive($department_id, $indicator_id, $tahun, $semester);
+        $evaluasi = $this->evaluasiService->findActive($department_id, $indicator_id, $tahun, $semester);
 
-        if ($laporan == null) {
-            abort(404);
-        }
 
-        return view('evaluasi.detail_admin', ['laporan' => $laporan]);
+        return view('evaluasi.detail_admin', ['laporan' => $laporan, 'indicator' => $indicator, 'department' => $department, 'evaluasi' => $evaluasi, 'tahun' => $tahun, 'semester' => $semester]);
     }
 
-    public function  monevDetailUser(int $laporan_id)
+    public function  monevDetailUser(int $indicator_id, int $tahun, int $semester)
     {
+
         if (!Auth::user()->can('read monev')) abort(403);
 
-        $laporan =  $this->laporanService->findById($laporan_id);
+        $department_id = Auth::user()->department_id;
+        $indicator =  $this->indicatorService->findById($indicator_id);
+        $department = $this->departmentService->findById($department_id);
+        $laporan = $this->laporanService->findActive($department_id, $indicator_id, $tahun, $semester);
+        $evaluasi = $this->evaluasiService->findActive($department_id, $indicator_id, $tahun, $semester);
 
-        if ($laporan == null) {
-            abort(404);
-        }
-
-        return view('evaluasi.detail', ['laporan' => $laporan]);
+        // dd($evaluasi);
+        return view('evaluasi.detail', ['laporan' => $laporan, 'indicator' => $indicator, 'department' => $department, 'evaluasi' => $evaluasi, 'tahun' => $tahun, 'semester' => $semester]);
     }
 
-    public function store(Request $request, int $laporan_id)
+    public function store(EvaluasiPostRequest $request)
     {
         if (!Auth::user()->can('create monev')) abort(403);
 
-        $request->validate(
-            [
-                'rekomendasi' => 'required',
-                'hasil_evaluasi' => 'required',
-            ]
-        );
+        $routeParam = [
+            $request->department_id,
+            $request->tahun,
+            $request->semester
+        ];
 
         try {
 
-            $this->laporanService->insertMonev($laporan_id, $request->except(['_token']));
+            $this->evaluasiService->insert($request->safe()->except(['_token']));
 
-            return redirect()->route('evaluasi.detail', $laporan_id)->with('message', "Berhasil menambahkan evaluasi dan rekomendasi");
+            return redirect()->route('evaluasi.department', $routeParam)->with('message', "Berhasil menambahkan evaluasi dan rekomendasi");
         } catch (\Exception $th) {
-            Log::error($th->getMessage(), ["laporan_id" => $laporan_id]);
+            Log::error($th->getMessage(), ['form_data' => $request->except(['_token'])]);
+            return redirect()->route('evaluasi.department', $routeParam)->with('error', "Gagal menambahkan evaluasi dan rekomendasi");
+        }
+    }
 
-            return redirect()->route('evaluasi.detail', $laporan_id)->with('error', "Gagal menambahkan evaluasi dan rekomendasi");
+    public function update(EvaluasiUpdateRequest $request, $id)
+    {
+        if (!Auth::user()->can('update monev')) abort(403);
+
+        $routeParam = [
+            $request->department_id,
+            $request->tahun,
+            $request->semester
+        ];
+
+        try {
+
+            $this->evaluasiService->update($id, $request->safe()->except(['_token']));
+
+            return redirect()->route('evaluasi.department', $routeParam)->with('message', "Berhasil mengubah evaluasi dan rekomendasi");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ['form_data' => $request->except(['_token'])]);
+            return redirect()->route('evaluasi.department', $routeParam)->with('error', "Gagal mengubah evaluasi dan rekomendasi");
         }
     }
 }
