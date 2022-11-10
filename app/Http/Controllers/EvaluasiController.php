@@ -8,6 +8,7 @@ use App\Services\DepartmentService;
 use App\Services\EvaluasiService;
 use App\Services\IndicatorService;
 use App\Services\LaporanService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -122,5 +123,16 @@ class EvaluasiController extends Controller
             Log::error($th->getMessage(), ['form_data' => $request->except(['_token'])]);
             return redirect()->route('evaluasi.department', $routeParam)->with('error', "Gagal mengubah evaluasi dan rekomendasi");
         }
+    }
+
+    public function export()
+    {
+        $data = [
+            'greting' => 'Hello world'
+        ];
+
+        return view('evaluasi.export', $data);
+        // $pdf = Pdf::loadView('evaluasi.export', $data);
+        // return $pdf->download('hasil-monev.pdf');
     }
 }
