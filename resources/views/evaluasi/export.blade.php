@@ -55,7 +55,7 @@ table {
 	border-spacing: 0;
 }
         html {
-            background-color: aqua;
+            /* background-color: aqua; */
             max-width: 900px;
             margin: auto;
 
@@ -105,7 +105,7 @@ table {
 }
 table.table-evaluasi td, table.table-evaluasi th {
   border: 1px solid #AAAAAA;
-  padding: 3px 2px;
+  padding: 4px 12px;
 }
 table.table-evaluasi tbody td {
   font-size: 13px;
@@ -117,18 +117,21 @@ table.table-evaluasi thead th {
   font-weight: normal;
   text-align: center;
 }
+body {
+    margin-top: 40px;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <div id="title" class="t30 b30">
-            HASIL EVALUASI ATAS PENYELENGGARAAN PELAYANAN PUBLIK DI LINGKUNGAN PEMERINTAH KOTA SINGKAWANG TANGGAL 17 JUNI 202
+            HASIL EVALUASI ATAS PENYELENGGARAAN PELAYANAN PUBLIK DI LINGKUNGAN PEMERINTAH KOTA SINGKAWANG
         </div>
         <table class="blueTable t30 b30">
             <tbody>
                 <tr>
                     <td style="width: 150px">Perangkat Daerah Yang Dievaluasi</td>
-                    <td>: Dinas Kependudukan dan Pencatatan Sipil Kota Singkawang</td>
+                    <td>: {{$department->department_fullname}}</td>
                 </tr>
                <tr><td></td></tr>
                 <tr>
@@ -200,17 +203,19 @@ table.table-evaluasi thead th {
                 <tr>
                     <th style="width: 30px">No.</th>
                     <th style="width: 150px">Indikator Pelayanan Publik</th>
-                    <th>Hasil Evaluasi</th>
+                    <th style="width: 300px">Hasil Evaluasi</th>
                     <th>Rekomendasi</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($indicators as $indicator)
                 <tr>
-                    <td>1</td>
-                    <td>cell2_1</td>
-                    <td>cell3_1</td>
-                    <td>cell4_1</td>
+                    <td>{{$indicator->indicator_id}}</td>
+                    <td>{{$indicator->aspect_name}}</td>
+                    <td><span>{!! getEvaluasi($indicator->indicator_id, $department->department_id, $tahun, $semester)->hasil_evaluasi ?? '' !!}</span></td>
+                    <td>{!! getEvaluasi($indicator->indicator_id, $department->department_id, $tahun, $semester)->rekomendasi ?? '' !!}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

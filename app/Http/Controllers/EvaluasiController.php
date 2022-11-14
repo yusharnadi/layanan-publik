@@ -125,14 +125,14 @@ class EvaluasiController extends Controller
         }
     }
 
-    public function export()
+    public function export($department_id, $tahun, $semester)
     {
-        $data = [
-            'greting' => 'Hello world'
-        ];
+        $indicators = $this->indicatorService->findAll();
+        $department = $this->departmentService->findById($department_id);
+        // dd($indicators);
 
-        return view('evaluasi.export', $data);
-        // $pdf = Pdf::loadView('evaluasi.export', $data);
-        // return $pdf->download('hasil-monev.pdf');
+        // return view('evaluasi.export', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
+        $pdf = Pdf::loadView('evaluasi.export', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
+        return $pdf->download('hasil-monev.pdf');
     }
 }

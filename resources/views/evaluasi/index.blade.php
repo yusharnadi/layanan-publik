@@ -15,7 +15,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body table-responsive">
-          <a href="{{route('evaluasi.export')}}" target="_blank" class="btn btn-info mb-2">Export</a>
+          <a href="{{route('evaluasi.export',[$department_id, $tahun, $semester])}}" target="_blank" class="btn btn-info mb-2">Export</a>
           @if (session('error'))
             <div class="alert alert-danger">{{session('error')}}</div> 
           @endif

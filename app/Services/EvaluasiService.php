@@ -37,6 +37,29 @@ class EvaluasiService
             ->first();
     }
 
+    public function findByPeriode(int $department_id, int $tahun, int $semester)
+    {
+        // return DB::table('evaluasis')
+        //     ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname',)
+        //     ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id', 'right outer')
+        //     ->join('departments', 'departments.department_id', '=', 'evaluasis.department_id', 'left outer')
+        //     // ->where('evaluasis.department_id', $department_id)
+        //     // ->where('evaluasis.tahun', $tahun)
+        //     ->where('evaluasis.semester', $semester)
+        //     ->orderBy('indicators.indicator_id', 'asc')
+        //     ->get();
+
+        return DB::table('indicators')
+            // ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname',)
+            // ->join('evaluasis', 'evaluasis.indicator_id', '=', 'indicators.indicator_id')
+            // ->join('departments', 'departments.department_id', '=', 'evaluasis.department_id', 'left outer')
+            // ->where('evaluasis.department_id', $department_id)
+            // ->where('evaluasis.tahun', $tahun)
+            // ->where('evaluasis.semester', $semester)
+            // ->orderBy('indicators.indicator_id', 'desc')
+            ->get();
+    }
+
     public function insert(array $data): void
     {
         Evaluasi::create($data);
