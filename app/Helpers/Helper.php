@@ -65,6 +65,18 @@ function isEvaluated(int $indicator_id, int $department_id, int $tahun, int $sem
     return $result;
 }
 
+function getEvaluasi(int $indicator_id, int $department_id, int $tahun, int $semester)
+{
+    return DB::table('evaluasis')
+        ->select('evaluasi_id', 'hasil_evaluasi', 'rekomendasi')
+        ->where('department_id', $department_id)
+        ->where('indicator_id', $indicator_id)
+        ->where('tahun', $tahun)
+        ->where('semester', $semester)
+        ->orderBy('evaluasi_id', 'desc')
+        ->first();
+}
+
 function getPercentage(int $department_id, int $tahun, int $semester): int
 {
     $result = 0;
