@@ -25,6 +25,14 @@
       <li class="{{set_active('evaluasi.*')}}"><a class="nav-link" href="{{ route('evaluasi.index') }}"><i class="fas fa-vote-yea"></i><span>Monev</span></a></li>
       @endcan
 
+      @can("read rencana")
+      <li class="{{set_active('rencana.*')}}"><a class="nav-link" href="{{ route('rencana.index') }}"><i class="fas fa-clipboard-list"></i><span>Rencana Aksi</span></a></li>
+      @endcan
+
+      @can("read rencana")
+      <li class="{{set_active('rencana.*')}}"><a class="nav-link" href="{{ route('rencana.index') }}"><i class="fas fa-walking"></i><span>Tindak Lanjut </span></a></li>
+      @endcan
+
       @can("read user")
       <li class="menu-header">Master Data</li>
       @endcan

@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\RencanaAksiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/evaluasi/store', [EvaluasiController::class, 'store'])->name('evaluasi.store');
     Route::put('/evaluasi/{evaluasi_id}/update', [EvaluasiController::class, 'update'])->name('evaluasi.update');
     Route::get('/evaluasi/export/{department_id}/{tahun}/{semester}', [EvaluasiController::class, 'export'])->name('evaluasi.export');
+
+    Route::get('/rencana-aksi', [RencanaAksiController::class, 'index'])->name('rencana.index');
+    Route::get('/rencana-aksi/{evaluasi_id}/create', [RencanaAksiController::class, 'create'])->name('rencana.create');
+    Route::post('/rencana-aksi/store', [RencanaAksiController::class, 'store'])->name('rencana.store');
+    Route::put('/rencana-aksi/{rencana_id}/store', [RencanaAksiController::class, 'update'])->name('rencana.update');
 
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');

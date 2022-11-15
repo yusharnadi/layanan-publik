@@ -54,16 +54,34 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update monev']);
         Permission::create(['name' => 'delete monev']);
 
+        Permission::create(['name' => 'read rencana']);
+        Permission::create(['name' => 'create rencana']);
+        Permission::create(['name' => 'update rencana']);
+        Permission::create(['name' => 'delete rencana']);
+
+        Permission::create(['name' => 'read tindak']);
+        Permission::create(['name' => 'create tindak']);
+        Permission::create(['name' => 'update tindak']);
+        Permission::create(['name' => 'delete tindak']);
+
         // create roles and assign created permissions
         // this can be done as separate statements
         $evaluator = Role::create(['name' => 'Evaluator']);
-        $evaluator->syncPermissions(['read monev', 'create monev', 'update monev', 'delete monev', 'read laporan', 'create laporan', 'update laporan', 'delete laporan', 'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian']);
+        $evaluator->syncPermissions(
+            [
+                'read monev', 'create monev', 'update monev', 'delete monev',
+                'read laporan', 'create laporan', 'update laporan', 'delete laporan',
+                'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian',
+                'read rencana', 'create rencana', 'update rencana', 'delete rencana',
+                'read tindak', 'create tindak', 'update tindak', 'delete tindak',
+            ]
+        );
 
         Role::create(['name' => 'Pimpinan']);
         Role::create(['name' => 'Quality Assurance']);
 
         $user = Role::create(['name' => 'User']);
-        $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev']);
+        $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev', 'read rencana', 'create rencana', 'update rencana', 'read tindak', 'create tindak', 'update tindak']);
 
         $role = Role::create(['name' => 'Administrator']);
         $role->givePermissionTo(Permission::all());
