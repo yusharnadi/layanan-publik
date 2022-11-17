@@ -96,7 +96,7 @@
           </div>
           <div class="form-group">
               <label>Output</label>
-              <textarea name="rekomendasi" class="form-control" style="height: 100px" required>{{old('output')}}</textarea>
+              <textarea name="output" class="form-control" style="height: 100px" required>{{old('output')}}</textarea>
           </div>
           <div class="form-group">
               <label>Waktu Penyelesaian</label>

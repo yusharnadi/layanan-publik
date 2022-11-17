@@ -32,4 +32,14 @@ class RencanaService
     {
         RencanaAksi::where('rencana_id', $rencana_id)->update($data);
     }
+
+    public function findById(int $id)
+    {
+        return  DB::table('rencana_aksis')
+            ->select('rencana_aksis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname')
+            ->join('indicators', 'indicators.indicator_id', '=', 'rencana_aksis.indicator_id')
+            ->join('departments', 'departments.department_id', '=', 'rencana_aksis.department_id')
+            ->where('rencana_aksis.rencana_id', $id)
+            ->first();
+    }
 }

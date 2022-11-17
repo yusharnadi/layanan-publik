@@ -65,6 +65,21 @@ function isEvaluated(int $indicator_id, int $department_id, int $tahun, int $sem
     return $result;
 }
 
+function isRencana(int $indicator_id, int $department_id, int $tahun, int $semester)
+{
+    $result = DB::table('rencana_aksis')
+        ->select('rencana_id')
+        ->where('department_id', $department_id)
+        ->where('indicator_id', $indicator_id)
+        ->where('tahun', $tahun)
+        ->where('semester', $semester)
+        // ->where('rencana', '!=', 'null')
+        ->orderBy('rencana_id', 'desc')
+        ->first();
+
+    return $result;
+}
+
 function getEvaluasi(int $indicator_id, int $department_id, int $tahun, int $semester)
 {
     return DB::table('evaluasis')

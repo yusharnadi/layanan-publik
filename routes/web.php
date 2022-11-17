@@ -8,6 +8,7 @@ use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\RencanaAksiController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TindakController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,7 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/rencana-aksi', [RencanaAksiController::class, 'index'])->name('rencana.index');
     Route::get('/rencana-aksi/{evaluasi_id}/create', [RencanaAksiController::class, 'create'])->name('rencana.create');
     Route::post('/rencana-aksi/store', [RencanaAksiController::class, 'store'])->name('rencana.store');
-    Route::put('/rencana-aksi/{rencana_id}/store', [RencanaAksiController::class, 'update'])->name('rencana.update');
+    Route::put('/rencana-aksi/{rencana_id}/update', [RencanaAksiController::class, 'update'])->name('rencana.update');
+
+    Route::get('/tindak-lanjut', [TindakController::class, 'index'])->name('tindak.index');
+    Route::get('/tindak-lanjut/{rencana_id}/create', [TindakController::class, 'create'])->name('tindak.create');
+
+    Route::post('/tindak-lanjut/store', [TindakController::class, 'store'])->name('tindak.store');
+    Route::put('/tindak-lanjut/{tindak_id}/update', [TindakController::class, 'update'])->name('tindak.update');
 
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');

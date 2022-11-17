@@ -29,8 +29,8 @@
       <li class="{{set_active('rencana.*')}}"><a class="nav-link" href="{{ route('rencana.index') }}"><i class="fas fa-clipboard-list"></i><span>Rencana Aksi</span></a></li>
       @endcan
 
-      @can("read rencana")
-      <li class="{{set_active('rencana.*')}}"><a class="nav-link" href="{{ route('rencana.index') }}"><i class="fas fa-walking"></i><span>Tindak Lanjut </span></a></li>
+      @can("read tindak")
+      <li class="{{set_active('tindak.*')}}"><a class="nav-link" href="{{ route('tindak.index') }}"><i class="fas fa-walking"></i><span>Tindak Lanjut </span></a></li>
       @endcan
 
       @can("read user")

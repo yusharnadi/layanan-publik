@@ -26,7 +26,7 @@ class EvaluasiService
             ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname')
             ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id')
             ->join('departments', 'departments.department_id', '=', 'evaluasis.department_id')
-            ->where('evaluasis.indicator_id', $id)
+            ->where('evaluasis.evaluasi_id', $id)
             ->first();
     }
 
