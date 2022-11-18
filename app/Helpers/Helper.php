@@ -80,6 +80,20 @@ function isRencana(int $indicator_id, int $department_id, int $tahun, int $semes
     return $result;
 }
 
+function isTindak(int $indicator_id, int $department_id, int $tahun, int $semester)
+{
+    $result = DB::table('tindak_lanjuts')
+        ->select('tindak_id')
+        ->where('department_id', $department_id)
+        ->where('indicator_id', $indicator_id)
+        ->where('tahun', $tahun)
+        ->where('semester', $semester)
+        ->orderBy('tindak_id', 'desc')
+        ->first();
+
+    return $result;
+}
+
 function getEvaluasi(int $indicator_id, int $department_id, int $tahun, int $semester)
 {
     return DB::table('evaluasis')

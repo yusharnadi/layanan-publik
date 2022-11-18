@@ -7,6 +7,7 @@ use App\Services\DepartmentService;
 use App\Services\IndicatorService;
 use App\Services\RencanaService;
 use App\Services\TindakService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -20,17 +21,48 @@ class TindakController extends Controller
     ) {
     }
 
-    public function index()
+    public function index(Request $request)
     {
         if (!Auth::user()->can('read tindak')) abort(403);
 
         $tahun = date('Y');
         $semester = getSemester();
-        $department = $this->departmentService->findById(Auth::user()->department_id);
+
+        if (Auth::user()->hasRole('User')) {
+            $department = $this->departmentService->findById(Auth::user()->department_id);
+
+            $indicators = $this->indicatorService->findAll();
+
+            return view('tindak.index', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
+        }
+
+        if ($request->has('tahun') && $request->has('semester')) {
+            $tahun = $request->tahun;
+            $semester = $request->semester;
+        }
+
+        $departments = $this->departmentService->findAll();
+        return view('tindak.index_admin', ['departments' => $departments, 'tahun' => $tahun, 'semester' => $semester]);
+    }
+
+    public function tindakDepartment(int $department_id, int $tahun, int $semester)
+    {
+        if (!Auth::user()->can('read tindak')) abort(403);
 
         $indicators = $this->indicatorService->findAll();
+        $department = $this->departmentService->findById($department_id);
 
-        return view('tindak.index', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
+        return view('tindak.department', ['indicators' => $indicators, 'department' => $department, 'tahun' => $tahun, 'semester' => $semester]);
+    }
+
+    public function detailTindak(int $tindak_id)
+    {
+        $tindak = $this->tindakService->findById($tindak_id);
+        if (!$tindak) {
+            abort(404);
+        }
+
+        return view('tindak.detail_admin', ['tindak' => $tindak]);
     }
 
     public function create(int $rencana_id)

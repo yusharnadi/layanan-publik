@@ -1,10 +1,10 @@
 @extends('layouts.admin-master')
-@section('page-title', 'Rencana Aksi')
+@section('page-title', 'Tindak Lanjut')
 @section('page-heading')
-  <h1>Rencana Aksi</h1>
+  <h1>Tindak Lanjut</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('rencana.index')}}">Rencana Aksi</a></div>
-    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$rencana->department_name}}</a></div>
+    <div class="breadcrumb-item"><a href="{{route('tindak.index')}}">Tindak Lanjut</a></div>
+    <div class="breadcrumb-item"><a href="{{url()->previous()}}">{{$tindak->department_name}}</a></div>
     {{-- <div class="breadcrumb-item">{{$tahun}}</div> --}}
     {{-- <div class="breadcrumb-item">Semester {{$semester}}</div> --}}
   </div>
@@ -31,33 +31,25 @@
             <thead>
               <tr>
                 <th>Indikator</th>
-                <th>{{$rencana->indicator_name}}</th>
+                <th>{{$tindak->indicator_name}}</th>
               </tr>
             </thead>
             <tbody>
                 <tr>
-                  <td>Rencana Aksi</td>
-                  <td>{!!$rencana->rencana !!}</td>
-                </tr>
-                <tr>
-                    <td>Target</td>
-                    <td>{!!$rencana->target !!}</td>
-                </tr>
-                <tr>
-                    <td>Output</td>
-                    <td>{!!$rencana->output !!}</td>
-                </tr>
-                <tr>
-                    <td>Waktu Penyelesaian</td>
-                    <td>{!!$rencana->waktu_penyelesaian !!}</td>
-                </tr>
-                <tr>
-                    <td>Penanggung Jawab</td>
-                    <td>{!!$rencana->penanggung_jawab !!}</td>
+                  <td>Status Tindak Lanjut</td>
+                  <td>
+                    @if ($tindak->status_tindak == 1)
+                        Belum Dilaksanakan
+                    @elseif ($tindak->status_tindak == 2)
+                        Sedang Proses
+                    @else
+                        Sudah Dilaksanakan
+                    @endif
+                  </td>
                 </tr>
                 <tr>
                     <td>Keterangan</td>
-                    <td>{!!$rencana->keterangan !!}</td>
+                    <td>{!!$tindak->keterangan !!}</td>
                 </tr>
                 <tr>
                     <td><a href="{{url()->previous()}}" class="btn btn-primary btn-icon"><i class="fas fa-arrow-left"></i> Kembali</a></td>

@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/tindak-lanjut/store', [TindakController::class, 'store'])->name('tindak.store');
     Route::put('/tindak-lanjut/{tindak_id}/update', [TindakController::class, 'update'])->name('tindak.update');
+    Route::get('/tindak-lanjut/{id}/department/{tahun}/{semester}', [TindakController::class, 'tindakDepartment'])->name('tindak.department');
+    Route::get('/tindak-lanjut/{tindak_id}/detail-admin', [TindakController::class, 'detailTindak'])->name('tindak.detail-admin');
 
 
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
