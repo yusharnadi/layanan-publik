@@ -41,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/rencana-aksi/{evaluasi_id}/create', [RencanaAksiController::class, 'create'])->name('rencana.create');
     Route::post('/rencana-aksi/store', [RencanaAksiController::class, 'store'])->name('rencana.store');
     Route::put('/rencana-aksi/{rencana_id}/update', [RencanaAksiController::class, 'update'])->name('rencana.update');
+    Route::get('/rencana-aksi/{id}/department/{tahun}/{semester}', [RencanaAksiController::class, 'rencanaDepartment'])->name('rencana.department');
+    Route::get('/rencana-aksi/{rencana_id}/detail-admin', [RencanaAksiController::class, 'detailRencana'])->name('rencana.detail-admin');
+
 
     Route::get('/tindak-lanjut', [TindakController::class, 'index'])->name('tindak.index');
     Route::get('/tindak-lanjut/{rencana_id}/create', [TindakController::class, 'create'])->name('tindak.create');
