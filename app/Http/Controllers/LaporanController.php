@@ -97,7 +97,7 @@ class LaporanController extends Controller
 
     public function laporanDepartment(int $department_id, int $tahun, int $semester)
     {
-        if (!Auth::user()->can('delete laporan')) abort(403);
+        if (!Auth::user()->can('read laporan')) abort(403);
 
         $indicators = $this->indicatorService->findAll();
         $department = $this->departmentService->findById($department_id);
@@ -107,7 +107,7 @@ class LaporanController extends Controller
 
     public function  laporanDetail(int $laporan_id)
     {
-        if (!Auth::user()->can('delete laporan')) abort(403);
+        if (!Auth::user()->can('read laporan')) abort(403);
 
         $laporan =  $this->laporanService->findById($laporan_id);
 

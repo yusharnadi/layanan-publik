@@ -3,7 +3,7 @@
 @section('page-heading')
   <h1>Monev</h1>
   <div class="section-header-breadcrumb">
-    <div class="breadcrumb-item"><a href="{{route('laporan.index')}}">Monev</a></div>
+    <div class="breadcrumb-item"><a href="{{route('evaluasi.index')}}">Monev</a></div>
     <div class="breadcrumb-item">{{$department->department_name}}</div>
     <div class="breadcrumb-item">{{$tahun}}</div>
     <div class="breadcrumb-item">Semester {{$semester}}</div>

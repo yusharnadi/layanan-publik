@@ -77,8 +77,28 @@ class PermissionSeeder extends Seeder
             ]
         );
 
-        Role::create(['name' => 'Pimpinan']);
-        Role::create(['name' => 'Quality Assurance']);
+        $pimpinan = Role::create(['name' => 'Pimpinan']);
+        $pimpinan->syncPermissions(
+            [
+                'read monev',
+                'read laporan',
+                'read penilaian',
+                'read rencana',
+                'read tindak',
+                'read indicator',
+            ]
+        );
+
+        $qa = Role::create(['name' => 'Quality Assurance']);
+        $qa->syncPermissions(
+            [
+                'read monev',
+                'read laporan',
+                'read penilaian', 'update penilaian',
+                'read rencana',
+                'read tindak',
+            ]
+        );
 
         $user = Role::create(['name' => 'User']);
         $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev', 'read rencana', 'create rencana', 'update rencana', 'read tindak', 'create tindak', 'update tindak']);

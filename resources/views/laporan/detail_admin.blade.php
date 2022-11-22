@@ -79,6 +79,7 @@
                 @endif
             </tbody>
         </table>
+        <a href="{{url()->previous()}}" class="btn btn-primary btn-icon"><i class="fas fa-arrow-left"></i> Kembali</a>
       </div>
     </div>
   </div>

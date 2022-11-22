@@ -47,7 +47,7 @@ class EvaluasiController extends Controller
 
     public function monevDepartment(int $department_id, int $tahun, int $semester)
     {
-        if (!Auth::user()->can('update monev')) abort(403);
+        if (!Auth::user()->can('read monev')) abort(403);
 
         $indicators = $this->indicatorService->findAll();
         $department = $this->departmentService->findById($department_id);
@@ -57,7 +57,7 @@ class EvaluasiController extends Controller
 
     public function  monevDetail(int $department_id, int $indicator_id, int $tahun, int $semester)
     {
-        if (!Auth::user()->can('update monev')) abort(403);
+        if (!Auth::user()->can('read monev')) abort(403);
 
         $indicator =  $this->indicatorService->findById($indicator_id);
         $department = $this->departmentService->findById($department_id);
@@ -127,6 +127,8 @@ class EvaluasiController extends Controller
 
     public function export($department_id, $tahun, $semester)
     {
+        if (!Auth::user()->can('read monev')) abort(403);
+
         $indicators = $this->indicatorService->findAll();
         $department = $this->departmentService->findById($department_id);
         // dd($indicators);
