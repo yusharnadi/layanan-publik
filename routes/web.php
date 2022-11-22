@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\IndicatorController;
-use App\Http\Controllers\laporanController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RencanaAksiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TindakController;
