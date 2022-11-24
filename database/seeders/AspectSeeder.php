@@ -15,12 +15,12 @@ class AspectSeeder extends Seeder
      */
     public function run()
     {
-        Aspect::create(['aspect_name' => "Kebijakan Layanan"]);
-        Aspect::create(['aspect_name' => "Profesionalisme SDM"]);
-        Aspect::create(['aspect_name' => "Sarana Prasarana"]);
-        Aspect::create(['aspect_name' => "Sistem Informasi Pelayanan Publik"]);
-        Aspect::create(['aspect_name' => "Konsultasi dan Pengaduan"]);
-        Aspect::create(['aspect_name' => "Inovasi Pelayanan Publik"]);
-        Aspect::create(['aspect_name' => "Informasi Tambahan"]);
+        Aspect::create(['aspect_name' => "Kebijakan Layanan", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Profesionalisme SDM", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Sarana Prasarana", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Sistem Informasi Pelayanan Publik", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Konsultasi dan Pengaduan", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Inovasi Pelayanan Publik", "aspect_bobot" => 0]);
+        Aspect::create(['aspect_name' => "Informasi Tambahan", "aspect_bobot" => 0]);
     }
 }

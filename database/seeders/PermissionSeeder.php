@@ -64,6 +64,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update tindak']);
         Permission::create(['name' => 'delete tindak']);
 
+        Permission::create(['name' => 'read aspect']);
+        Permission::create(['name' => 'create aspect']);
+        Permission::create(['name' => 'update aspect']);
+        Permission::create(['name' => 'delete aspect']);
+
         // create roles and assign created permissions
         // this can be done as separate statements
         $evaluator = Role::create(['name' => 'Evaluator']);
@@ -74,6 +79,7 @@ class PermissionSeeder extends Seeder
                 'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian',
                 'read rencana', 'create rencana', 'update rencana', 'delete rencana',
                 'read tindak', 'create tindak', 'update tindak', 'delete tindak',
+                'read aspect', 'create aspect', 'update aspect',
             ]
         );
 
