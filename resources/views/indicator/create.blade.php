@@ -18,6 +18,17 @@
         <form action="{{route('indicator.store')}}" class="form" method="POST">
           @csrf
           <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Aspect</label>
+            <div class="col-sm-5 col-md-3">
+                <select name="aspect_id" class="form-control" required>
+                    <option value="">--- Pilih Aspect ---</option>
+                    @foreach ($aspects as $aspect)
+                    <option value="{{$aspect->aspect_id}}">{{$aspect->aspect_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kode Indikator</label>
             <div class="col-sm-6 col-md-3">
               <input type="text" name="indicator_code" class="form-control" value="{{old("indicator_code")}}" required>
@@ -60,19 +71,50 @@
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Aspect</label>
-            <div class="col-sm-5 col-md-3">
-                <select name="aspect_id" class="form-control" required>
-                    <option value="">--- Pilih Aspect ---</option>
-                    @foreach ($aspects as $aspect)
-                    <option value="{{$aspect->aspect_id}}">{{$aspect->aspect_name}}</option>
-                    @endforeach
-                </select>
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 0</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_0" class="form-control" style="height: 60px">{{old("skala_0")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 1</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_1" class="form-control" style="height: 60px">{{old("skala_1")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 2</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_2" class="form-control" style="height: 60px">{{old("skala_2")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 3</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_3" class="form-control" style="height: 60px">{{old("skala_3")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 4</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_4" class="form-control" style="height: 60px">{{old("skala_4")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Skala Nilai 5</label>
+            <div class="col-sm-12 col-md-7">
+             <textarea name="skala_5" class="form-control" style="height: 60px">{{old("skala_5")}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Bobot Indikator</label>
+            <div class="col-sm-12 col-md-2">
+              <input type="text" name="indicator_bobot" class="form-control" value="{{old("indicator_bobot")}}">
             </div>
           </div>
           <div class="form-group row mb-4">
             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-            <div class="col-sm-12 col-md-7">
+            <div class="col-sm-12 col-md-12">
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
           </div>
@@ -98,8 +140,6 @@
           ['font', ['bold', 'underline', 'clear']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link']],
           ['view', [, 'codeview']]
         ]
       });

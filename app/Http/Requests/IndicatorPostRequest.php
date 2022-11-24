@@ -33,6 +33,13 @@ class IndicatorPostRequest extends FormRequest
             'doc_3' => '',
             'doc_4' => '',
             'doc_5' => '',
+            'skala_0' => 'required',
+            'skala_1' => 'required',
+            'skala_2' => 'required',
+            'skala_3' => 'required',
+            'skala_4' => 'required',
+            'skala_5' => 'required',
+            'indicator_bobot' => 'required',
         ];
     }
 }

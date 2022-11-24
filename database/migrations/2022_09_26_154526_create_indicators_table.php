@@ -22,7 +22,13 @@ return new class extends Migration
             $table->string('doc_2')->nullable();
             $table->string('doc_3')->nullable();
             $table->string('doc_4')->nullable();
-            // $table->string('doc_5')->nullable();
+            $table->string('skala_0')->nullable();
+            $table->string('skala_1')->nullable();
+            $table->string('skala_2')->nullable();
+            $table->string('skala_3')->nullable();
+            $table->string('skala_4')->nullable();
+            $table->string('skala_5')->nullable();
+            $table->integer('indicator_bobot')->nullable();
             $table->tinyInteger('aspect_id');
         });
     }

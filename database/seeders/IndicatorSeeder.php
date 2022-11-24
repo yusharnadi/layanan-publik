@@ -19,42 +19,66 @@ class IndicatorSeeder extends Seeder
             "indicator_code" => "1.a.A.k",
             "indicator_name" => "Tersedia Standar Pelayanan (SP) sesuai dengan ketentuan peraturan dan perundang-undangan yang berlaku",
             "indicator_description" => "<ul><li>Setiap unit lokus wajib menyusun Standar Pelayanan sebagai pedoman penyelenggaraan pelayanan dan acuan penilaian kualitas pelayanan</li><li>Standar Pelayanan setelah disusun disusun dan dibahas dengan masyarakat wajib untuk ditetapkan, agar dapat memiliki kekuatan hukum.</li><li>Penetapan Standar Pelayanan dilakukan minimal oleh pimpinan Unit Penyelenggara Pelayanan</li><li>Standar Pelayanan terdiri dari atas 14 komponen, dimana 6 diantaranya merupakan komponen service delivery, dan 8 komponen lainnya merupakan komponen manufacturing. Komponen Service Delivery wajid dipublikasikan pada media publikasi yang dimiliki Unit Lokus.</li><li>Yang dimaksud penetapan Standar Pelayanan untuk sebagian jenis pelayanan adalah penetapan SP yang belum mencakup seluruh jenis pelayanan yang ada dalam suatu unit pelayanan.</li><li>Penyusunan Standar Pelayanan dapat mengacu pada Peraturan Menteri Nomor 15 Tahun 2014</li></ul>",
-
             "doc_1" => "Daftar jenis pelayanan yang diselenggarakan",
             "doc_2" => "Dokumen standar pelayanan yang telah ditetapkan",
             "doc_3" => "Berita Acara",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak tersedia Standar Pelayanan.",
+            "skala_1" => "Tersedia SP namun tidak memenuhi 14 komponen.",
+            "skala_2" => "Tersedia SP yang memenuhi 14 komponen.",
+            "skala_3" => "Tersedia SP yang memenuhi 14 komponen dan dilakukan penetapan.",
+            "skala_4" => "Tersedia SP yang memenuhi 14 komponen, melibatkan masyarakat dalam penyusunan SP, dan dilakukan penetapan.",
+            "skala_5" => "Tersedia SP yang memenuhi 14 komponen, melibatkan masyarakat dalam penyusunan SP, dilakukan penetapan, dan dilakukan monev.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
             "indicator_code" => "2.a.P",
             "indicator_name" => "Proses penyusunan dan perubahan SP telah melibatkan unsur masyarakat.",
             "indicator_description" => "<ul><li>Penyusunan dan penetapan SP wajib melibatkan warga negara maupun penduduk sebagai orang perorangan, kelompok, maupun badan hukum yang berkedudukan sebagai penerima manfaat pelayanan publik, baik secara langsung maupun tidak langsung. Pihak terkait merupakan pihak yang dianggap kompeten dalam memberikan masukan terhadap penyusunan SP</li><li>Masyarakat yang dilibatkan dalam penyusunan SP mewakili berbagai unsur dan profesi: (1) Masyarakat Penggunan Layanan, (2) Ahli/Praktisi/Akademisi, (3) Instansi Terkait, (4) Organisasi Masyrakat Sipil, dan (5) Media Massa.</li></ul>",
-
             "doc_1" => "Dokumen pelibatan masyarakat",
             "doc_2" => "Berita Acara",
             "doc_3" => "Daftar Hadir penyusunan SP, dan Foto Kegiatan",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Penyusunan SP tanpa melibatkan unsur masyarakat dan pihak terkait (stakeholder).",
+            "skala_1" => "Penyusunan SP telah melibatkan minimal 1 unsur masyarakat.",
+            "skala_2" => "Penyusunan SP telah melibatkan minimal 2 unsur masyarakat.",
+            "skala_3" => "Penyusunan SP telah melibatkan minimal 3 unsur masyarakat.",
+            "skala_4" => "Penyusunan SP telah melibatkan minimal 4 unsur masyarakat.",
+            "skala_5" => "Penyusunan SP telah melibatkan lebih dari 4 unsur masyarakat.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
             "indicator_code" => "3.a.T",
             "indicator_name" => "Jumlah media publikasi untuk komponen service delivery",
             "indicator_description" => "<p>SP yang ditetapkan wajib dipublikasikan pada media publikasi yang tersedia, dan dapat diakses dengan mudah oleh masyarakat. Media Publikasi tersebut dapat berupa</p><ul><li>Media Cetak/ Non Elektronik. Media yang termasuk didalamnya yakni brosur, leaflet, majalah, pamphlet, buku saku, papan pengumuman dan sejenisnya</li><li>Media Elektronik. Media termasuk didalamnya yakni TV, layar monitor, Kios-k, link publikasi, dan sejenisnya.</li><li>Media Sosial. Media yang termasuk didalamnya yakni Facebook, Instagram, Twitter, WhatsApp, dan sejenisnya.</li><li>Website. Media yang termasuk didalamnya yakni website, dan subsite.</li><li>Aplikasi yang bisa diunduh, yaitu suatu aplikasi yang dikembangkan UPP yang dapat diunduh oleh pengguna layanan, baik berbasis Android, iOS, maupun OS lainya.</li><li>SIPP Nasional, yaitu suatu sistem nasional yang disediakan sebagai media publikasi dan informasi terkait pelayanan publik.</li><li>Papan reklame: Videotron/billboard/baliho/ media sejenisnya.</li></ul>",
-
             "doc_1" => "Foto atau screenshoot dari berbagai bentuk / media publikasi standar pelayanan yang dimiliki",
             "doc_2" => "Screenshoot publikasi di SIPPN",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak ada publikasi SP.",
+            "skala_1" => "Tersedia publikasi SP hanya sebagian dari komponen service delivery baik pada media cetak/non elektronik maupun media elektronik.",
+            "skala_2" => "Tersedia publikasi SP seluruh komponen service delivery pada 2 atau lebih media publikasi namun belum dipublikasikan pada SIPP Nasional.",
+            "skala_3" => "Tersedia publikasi SP seluruh komponen service delivery pada 2 media publikasi dan pada SIPP Nasional.",
+            "skala_4" => "Tersedia publikasi SP seluruh komponen service delivery pada 3 media publikasi dan pada SIPP Nasional.",
+            "skala_5" => "Tersedia publikasi SP seluruh komponen service delivery pada 4 atau lebih media publikasi dan pada SIPP Nasional.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
             "indicator_code" => "4.a.K",
             "indicator_name" => "Telah dilakukan Peninjauan Ulang secara berkala terhadap Standar Pelayanan",
             "indicator_description" => "<p>Standar Pelayanan yang sudah ditetapkan wajib ditinjau ulang sesuai ketentuan pasal 33 pada PP 96/2012, dan hasil peninjauan ulang dapat digunakan Unit Lokus untuk sebagai dasar tetap menjalankan SP yang sudah dibuat atau melakukan perubahan SP.</p>",
-
             "doc_1" => "BA FKP peninjauan SP",
             "doc_2" => "Laporan yang berisi: Berita Acara Peninjauan Ulang SP, Dokumentasi kegiatan, lain lain",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak dilaksanakan peninjauan ulang secara berkala terhadap Standar Pelayanan.",
+            "skala_1" => "Dilakukan peninjauan ulang 3 tahun atau lebih terhadap seluruh jenis layanan.",
+            "skala_2" => "Dilakukan peninjauan ulang 2 tahun sekali terhadap sebagian jenis layanan.",
+            "skala_3" => "Dilakukan peninjauan ulang 2 tahun sekali terhadap seluruh jenis layanan.",
+            "skala_4" => "Dilakukan peninjauan ulang 1 tahun sekali atau lebih cepat terhadap sebagian jenis layanan.",
+            "skala_5" => "Dilakukan peninjauan ulang 1 tahun sekali atau lebih cepat terhadap seluruh jenis layanan.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
@@ -75,20 +99,32 @@ class IndicatorSeeder extends Seeder
             </ol>
             </li>
             </ul>",
-
             "doc_1" => "Dokumen Pengesahan Maklumat Pelayanan",
             "doc_2" => "Foto atau screenshoot dari berbagai bentuk Publikasi Maklumat Pelayanan yang dimiliki",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak tersedia Maklumat Pelayanan.",
+            "skala_1" => "Tersedia Maklumat Pelayanan namum belum ditetapkan.",
+            "skala_2" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan namun isinya belum sesuai dengan peraturan perundangan yang berlaku.",
+            "skala_3" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan dan isinya telah sesuai dengan peraturan perundangan yang berlaku.",
+            "skala_4" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan, isinya telah sesuai dengan peraturan perundangan yang berlaku, dan dipublikasikan pada media non elektronik.",
+            "skala_5" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan, isinya telah sesuai dengan peraturan perundangan yang berlaku, dipublikasikan pada media non elektronik dan elektronik",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
             "indicator_code" => "6.a.B",
             "indicator_name" => "SKM yang dilaksanakan sesuai dengan PermenPANRB",
             "indicator_description" => "Cukup Jelas",
-
             "doc_1" => "Publikasi hasil SKM, Dokumen atau Foto pelaksanaan SKM dan media yang digunakan(misalnya mesin SKM atau kuesioner manual)",
             "doc_2" => "Laporan hasil pelaksanaan SKM",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Belum melaksanakan SKM.",
+            "skala_1" => "Sudah melaksanakan SKM namun tidak sesuai dengan PermenPANRB yang berlaku.",
+            "skala_2" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku.",
+            "skala_3" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik.",
+            "skala_4" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik dan elektronik.",
+            "skala_5" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik dan elektronik serta dilakukan tindak lanjut hasil SKM.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
@@ -105,9 +141,15 @@ class IndicatorSeeder extends Seeder
             <li>Papan reklame: Videotron/billboard/baliho/media sejenis lainnya.</li>
             </ol>
             </div>",
-
             "doc_1" => "Foto atau Screenshoot dari berbagai bentuk publikasi hasil SKM",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak dipublikasikan.",
+            "skala_1" => "SKM dipublikasikan pada 1 (satu) media publikasi.",
+            "skala_2" => "SKM dipublikasikan pada 2 (dua) media publikasi.",
+            "skala_3" => "SKM dipublikasikan pada 3 (tiga) media publikasi.",
+            "skala_4" => "SKM dipublikasikan pada 4 (empat) media publikasi.",
+            "skala_5" => "SKM dipublikasikan pada lebih dari 4 (empat) media publikasi lainnya.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
@@ -116,21 +158,33 @@ class IndicatorSeeder extends Seeder
             "indicator_description" => "<p>Tindak lanjut Hasil SKM adalah hasil survei yang diolah, dianalisis yang menghasilkan rekomendasi yang kemudian dijadikan referensi kebijakan perbaikan layanan. Hasil SKM seluruh jenis pelayanan dalam bentuk saran dan rekomendasi ditindaklanjuti dan dipergunakan sebagai acuan perbaikan layanan dan kebijakan layanan oleh oimpinan daerah maupun pimpinan penyelenggara.</p>
             <p>Ruang Lingkup SKM meliputi: persyaratan, prosedur, waktu, produk pelayanan, biaya, kompetensi, perilaku dan maklumat pelayanan serta pengelolaan pengaduan (merujuk pada peraturan Menteri yang berlaku).</p>
             <p>Cara mengukur persentase : (realisasi rencana tindak lanjut : jumlah rencana tindak lanjut) x 100</p>",
-
             "doc_1" => "Laporan SKM tahun n-1 yang memuat rencana tindak lanjut",
             "doc_2" => "Laporan hasil pelaksanaan tindak lanjut hasil SKM",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Tidak ada rencana tindak lanjut SKM.",
+            "skala_1" => "Ada rencana tindak lanjut tapi belum dilaksanakan.",
+            "skala_2" => "Tindak lanjut hasil SKM dilaksanakan kurang dari 30%, dibuktikan dengan laporan pelaksanaannya.",
+            "skala_3" => "Tindak lanjut hasil SKM dilaksanakan 30-80%, dibuktikan dengan laporan pelaksanaannya.",
+            "skala_4" => "Tindak lanjut hasil SKM dilaksanakan lebih dari 80%, dibuktikan dengan laporan pelaksanaannya.",
+            "skala_5" => "Tindak lanjut hasil SKM dilaksanakan 100%, dibuktikan dengan laporan pelaksanaannya.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
             "indicator_code" => "9.a.Ak",
             "indicator_name" => "Kecepatan tindak lanjut hasil SKM seluruh jenis pelayanan",
             "indicator_description" => "<p>Kecepatan tindak lanjut rekomendasi hasil SKM guna melihat keseriusan UPP dalam melaksanakan SKM. Apakah hasil SKM segera ditindaklanjuti atau tidak. Adapun kecepatan tindak lanjut ini dilihat dari laporan pelaksanaan SKM oleh unit pelayanan pada 2 tahun terakhir serta laporan tindak lanjutnya.</p>",
-
             "doc_1" => "Laporan hasil pelaksanaan SKM pada 2 tahun terakhir yang memuat rencana tindak lanjut",
             "doc_2" => "Laporan pelaksanaan tindak lanjut dari poin pertama",
             "doc_3" => "Laporan hasil SKM tahun sebelum penetapan SP",
-            "aspect_id" => 1
+            "aspect_id" => 1,
+            "skala_0" => "Rekomendasi hasil SKM tidak ditindaklanjuti.",
+            "skala_1" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 1 tahun setelah laporan SKM diterbitkan.",
+            "skala_2" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 9 bulan setelah laporan SKM diterbitkan.",
+            "skala_3" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 6 bulan setelah laporan SKM diterbitkan.",
+            "skala_4" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 3 bulan setelah laporan SKM diterbitkan.",
+            "skala_5" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 1 bulan setelah laporan SKM diterbitkan.",
+            "indicator_bobot" => 0
         ]);
 
         Indicator::create([
