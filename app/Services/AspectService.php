@@ -12,9 +12,19 @@ class AspectService
         return Aspect::all();
     }
 
+    public function findById(int $id)
+    {
+        return Aspect::findOrFail($id);
+    }
+
     public function insert(array $data)
     {
-        return Aspect::create($data);
+        Aspect::create($data);
+    }
+
+    public function update(array $data, int $id): void
+    {
+        Aspect::where('aspect_id', $id)->update($data);
     }
 
     public function findAllWithIndicator()
@@ -31,5 +41,10 @@ class AspectService
             array_push($result, $aspect_temp);
         }
         return $result;
+    }
+
+    public function delete(int $id): int
+    {
+        return Aspect::destroy($id);
     }
 }

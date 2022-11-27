@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('aspects', function (Blueprint $table) {
             $table->id('aspect_id');
             $table->string('aspect_name');
-            $table->integer('aspect_bobot');
+            $table->double('aspect_bobot');
         });
     }
 

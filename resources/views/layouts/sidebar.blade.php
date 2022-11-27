@@ -37,6 +37,10 @@
       <li class="menu-header">Master Data</li>
       @endcan
 
+      @can("read aspect")
+      <li class="{{set_active('aspects.*')}}"><a class="nav-link" href="{{ route('aspects.index') }}"><i class="fas fa-tasks"></i><span>Aspek</span></a></li>
+      @endcan
+
       @can("read indicator")
       <li class="{{set_active('indicator.*')}}"><a class="nav-link" href="{{ route('indicator.index') }}"><i class="far fa-lightbulb"></i><span>Indikator</span></a></li>
       @endcan

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AspectController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/indicator', IndicatorController::class);
+    Route::resource('/aspects', AspectController::class);
     Route::resource('/department', DepartmentController::class);
     Route::resource('/users', UserController::class);
 
@@ -66,6 +68,7 @@ Route::middleware('auth')->group(function () {
 
     // DELETE ROUTE 
     Route::get('/user/{id}/delete', [UserController::class, 'delete'])->name('users.delete');
+    Route::get('/aspects/{id}/delete', [AspectController::class, 'delete'])->name('aspects.delete');
     Route::get('/indicator/{id}/delete', [IndicatorController::class, 'delete'])->name('indicator.delete');
     Route::get('/department/{id}/delete', [DepartmentController::class, 'delete'])->name('department.delete');
 });
