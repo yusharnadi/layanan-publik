@@ -7,6 +7,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EvaluasiController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\RencanaAksiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TindakController;
@@ -30,6 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/laporan/{id}/update', [LaporanController::class, 'update'])->name('laporan.update');
     Route::get('/laporan/{id}/department/{tahun}/{semester}', [LaporanController::class, 'laporanDepartment'])->name('laporan.department');
     Route::get('/laporan/{id}/detail', [LaporanController::class, 'laporanDetail'])->name('laporan.detail');
+
+    Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
+    Route::get('/penilaian/{id}/department/{tahun}/{semester}', [PenilaianController::class, 'penilaianDepartment'])->name('penilaian.department');
+    Route::get('/penilaian/{indicator_id}/detail/{department_id}/{tahun}/{semester}', [PenilaianController::class, 'penilaianDetail'])->name('penilaian.detail');
+    Route::post('/penilaian/store', [PenilaianController::class, 'store'])->name('penilaian.store');
+    Route::put('/penilaian/{penilaian_id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
+
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');
     Route::get('/evaluasi/{id}/department/{tahun}/{semester}', [EvaluasiController::class, 'monevDepartment'])->name('evaluasi.department');

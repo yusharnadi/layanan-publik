@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Departments;
-use Illuminate\Support\Facades\DB;
 
 class DepartmentService
 {

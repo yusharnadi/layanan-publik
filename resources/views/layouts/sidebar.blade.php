@@ -33,6 +33,10 @@
       <li class="{{set_active('tindak.*')}}"><a class="nav-link" href="{{ route('tindak.index') }}"><i class="fas fa-walking"></i><span>Tindak Lanjut </span></a></li>
       @endcan
 
+      @can("read penilaian")
+      <li class="{{set_active('penilaian.*')}}"><a class="nav-link" href="{{ route('penilaian.index') }}"><i class="fas fa-poll"></i><span>Penilaian </span></a></li>
+      @endcan
+
       @can("read user")
       <li class="menu-header">Master Data</li>
       @endcan

@@ -29,7 +29,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Tersedia SP yang memenuhi 14 komponen dan dilakukan penetapan.",
             "skala_4" => "Tersedia SP yang memenuhi 14 komponen, melibatkan masyarakat dalam penyusunan SP, dan dilakukan penetapan.",
             "skala_5" => "Tersedia SP yang memenuhi 14 komponen, melibatkan masyarakat dalam penyusunan SP, dilakukan penetapan, dan dilakukan monev.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.17
         ]);
 
         Indicator::create([
@@ -46,7 +46,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Penyusunan SP telah melibatkan minimal 3 unsur masyarakat.",
             "skala_4" => "Penyusunan SP telah melibatkan minimal 4 unsur masyarakat.",
             "skala_5" => "Penyusunan SP telah melibatkan lebih dari 4 unsur masyarakat.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.14
         ]);
 
         Indicator::create([
@@ -62,7 +62,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Tersedia publikasi SP seluruh komponen service delivery pada 2 media publikasi dan pada SIPP Nasional.",
             "skala_4" => "Tersedia publikasi SP seluruh komponen service delivery pada 3 media publikasi dan pada SIPP Nasional.",
             "skala_5" => "Tersedia publikasi SP seluruh komponen service delivery pada 4 atau lebih media publikasi dan pada SIPP Nasional.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.7
         ]);
 
         Indicator::create([
@@ -78,7 +78,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Dilakukan peninjauan ulang 2 tahun sekali terhadap seluruh jenis layanan.",
             "skala_4" => "Dilakukan peninjauan ulang 1 tahun sekali atau lebih cepat terhadap sebagian jenis layanan.",
             "skala_5" => "Dilakukan peninjauan ulang 1 tahun sekali atau lebih cepat terhadap seluruh jenis layanan.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.14
         ]);
 
         Indicator::create([
@@ -108,7 +108,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan dan isinya telah sesuai dengan peraturan perundangan yang berlaku.",
             "skala_4" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan, isinya telah sesuai dengan peraturan perundangan yang berlaku, dan dipublikasikan pada media non elektronik.",
             "skala_5" => "Tersedia Maklumat Pelayanan yang sudah ditetapkan, isinya telah sesuai dengan peraturan perundangan yang berlaku, dipublikasikan pada media non elektronik dan elektronik",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.1
         ]);
 
         Indicator::create([
@@ -124,7 +124,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik.",
             "skala_4" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik dan elektronik.",
             "skala_5" => "Sudah melaksanakan SKM sesuai dengan PermenPANRB yang berlaku dan dipublikasikan pada media non-elektronik dan elektronik serta dilakukan tindak lanjut hasil SKM.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.17
         ]);
 
         Indicator::create([
@@ -149,7 +149,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "SKM dipublikasikan pada 3 (tiga) media publikasi.",
             "skala_4" => "SKM dipublikasikan pada 4 (empat) media publikasi.",
             "skala_5" => "SKM dipublikasikan pada lebih dari 4 (empat) media publikasi lainnya.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.07
         ]);
 
         Indicator::create([
@@ -167,7 +167,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Tindak lanjut hasil SKM dilaksanakan 30-80%, dibuktikan dengan laporan pelaksanaannya.",
             "skala_4" => "Tindak lanjut hasil SKM dilaksanakan lebih dari 80%, dibuktikan dengan laporan pelaksanaannya.",
             "skala_5" => "Tindak lanjut hasil SKM dilaksanakan 100%, dibuktikan dengan laporan pelaksanaannya.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.07
         ]);
 
         Indicator::create([
@@ -184,7 +184,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 6 bulan setelah laporan SKM diterbitkan.",
             "skala_4" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 3 bulan setelah laporan SKM diterbitkan.",
             "skala_5" => "Rekomendasi hasil SKM ditindaklanjuti seluruhnya 1 bulan setelah laporan SKM diterbitkan.",
-            "indicator_bobot" => 0
+            "indicator_bobot" => 0.07
         ]);
 
         Indicator::create([
@@ -199,20 +199,32 @@ class IndicatorSeeder extends Seeder
             <li>Penambahan waktu layanan diluar hari kerja namun secara rutin.</li>
             <li>Layanan 24 jam: layanan yang merupakan inti pelayanan dan pendaftaran. <strong>Tidak termasuk</strong> layanan konsultasi dan informasi.</li>
             </ol>",
-
             "doc_1" => "Surat perintah lembur (nota dinas/memo/dll)",
             "doc_2" => "Surat Tugas pemberian palayanan pada hari libur",
             "doc_3" => "Foto Kegiatan",
-            "aspect_id" => 2
+            "aspect_id" => 2,
+            "skala_0" => "Tidak memiliki kebijakan jam pelayanan/kerja.",
+            "skala_1" => "Memiliki kebijakan jam pelayanan/kerja.",
+            "skala_2" => "Memiliki kebijakan jam pelayanan/kerja dan 1 unsur lainnya.",
+            "skala_3" => "Memiliki kebijakan jam pelayanan/kerja dan 2  unsur lainnya.",
+            "skala_4" => "Memiliki kebijakan jam pelayanan/kerja dan 3 unsur lainnya.",
+            "skala_5" => "Memiliki kebijakan jam pelayanan/kerja dan 4 atau lebih unsur lainnya.",
+            "indicator_bobot" => 0.1
         ]);
 
         Indicator::create([
             "indicator_code" => "11.b.K",
             "indicator_name" => "Tersedia Kode Etik dan Kode Perilaku Pelaksana dan/ atau Budaya Pelayanan di lingkungan instansi.",
             "indicator_description" => "<p>Aturan Perilaku dan Kode Etik Pelaksana adalah pedoman sikap, perilaku, perbuatan, tulisan dan ucapan pegawai, serta hak dan kewajiban pelaksana layanan dalam menjalankan tugas -tugas pelayanan kepada pengguna layanan. Unsur kode etik meliputi: (1) Hak dan kewajiban, (2) larangan KKn, (3) larangan diskriminasi, (4) sanksi, (5) penghargaan.</p>",
-
             "doc_1" => "Dokumen kode etik dan kode perilaku",
-            "aspect_id" => 2
+            "aspect_id" => 2,
+            "skala_0" => "Tidak tersedia aturan kode etik dan kode perilaku.",
+            "skala_1" => "Aturan kode etik dan kode perilaku pelaksana pelayanan hanya meliputi nilai dasar hak dan kewajiban.",
+            "skala_2" => "Aturan kode etik dan kode perilaku pelaksana pelayanan meliputi nilai dasar hak dan kewajiban dan 1 (satu) unsur lainnya.",
+            "skala_3" => "Aturan kode etik dan kode perilaku pelaksana pelayanan meliputi nilai dasar hak dan kewajiban dan 2 (dua) unsur lainnya.",
+            "skala_4" => "Aturan kode etik dan kode perilaku pelaksana pelayanan meliputi nilai dasar hak dan kewajiban dan 3 (tiga) unsur lainnya.",
+            "skala_5" => "Aturan kode etik dan kode perilaku pelaksana pelayanan meliputi nilai dasar hak dan kewajiban dan 4 (empat) unsur lainnya.",
+            "indicator_bobot" => 0.2
         ]);
 
         Indicator::create([
@@ -231,7 +243,14 @@ class IndicatorSeeder extends Seeder
             <p>Bukti dukung yang disampaikan paling tidak dalam jangka waktu 1 tahun terakhir.</p>",
 
             "doc_1" => "Dokumen mengenai mekanisme motivasi kerja (Pemberian penghargaan, sertifikat diklat, surat rekomendasi beasiswa, jadwal program konseling, foto kegiatan team/ capacity building dll)",
-            "aspect_id" => 2
+            "aspect_id" => 2,
+            "skala_0" => "Tidak tersedia mekanisme peningkatan motivasi kerja.",
+            "skala_1" => "Tersedia 1 jenis mekanisme peningkatan motivasi kerja.",
+            "skala_2" => "Tersedia 2 jenis mekanisme peningkatan motivasi kerja.",
+            "skala_3" => "Tersedia 3 jenis mekanisme peningkatan motivasi kerja.",
+            "skala_4" => "Tersedia 4 jenis mekanisme peningkatan motivasi kerja.",
+            "skala_5" => "Tersedia lebih dari 4 jenis mekanisme peningkatan motivasi kerja.",
+            "indicator_bobot" => 0.2
         ]);
 
         Indicator::create([
@@ -245,9 +264,15 @@ class IndicatorSeeder extends Seeder
             <li>Penampilan: penggunaan atribut, pakaian, dll yang sudah ditetapkan;</li>
             <li>Tidak pernah menerima komplain dari pengguna layanan yang bersifat personal.</li>
             </ol>",
-
             "doc_1" => "Lampirkan SK yang mengatur mengenai pemberian penghargaan.",
-            "aspect_id" => 2
+            "aspect_id" => 2,
+            "skala_0" => "Tidak ada pemberian penghargaan.",
+            "skala_1" => "Ada pemberian penghargaan hanya berdasarkan 1-2 unsur kecuali kinerja.",
+            "skala_2" => "Ada pemberian penghargaan berdasarkan 3-5 unsur kecuali kinerja.",
+            "skala_3" => "Ada pemberian penghargaan berdasarkan 1-2 unsur termasuk kinerja.",
+            "skala_4" => "Ada pemberian penghargaan berdasarkan 3-4 unsur termasuk kinerja.",
+            "skala_5" => "Ada pemberian penghargaan berdasarkan 5-6 unsur termasuk kinerja.",
+            "indicator_bobot" => 0.2
         ]);
 
         Indicator::create([
@@ -260,9 +285,15 @@ class IndicatorSeeder extends Seeder
             <li>Aturan penerapan 5S yaitu aturan/kebijakan terkait penerapan 5S oleh pegawai/petugas layanan yang berlaku.</li>
             <li>Nilai-nilai budaya layanan bisa dalam bentuk slogan, motto,maskot,dan sebagainya.</li>
             </ul>",
-
             "doc_1" => "Lampirkan foto bukti dukung (pegawai menerapkan budaya pelayanan)",
-            "aspect_id" => 2
+            "aspect_id" => 2,
+            "skala_0" => "Tidak menerapkan budaya layanan.",
+            "skala_1" => "Pelaksana pelayanan menerapkan 1 (satu) unsur budaya pelayanan.",
+            "skala_2" => "Pelaksana pelayanan menerapkan 2 (dua) unsur budaya pelayanan.",
+            "skala_3" => "Pelaksana pelayanan menerapkan 3 (tiga) unsur budaya pelayanan.",
+            "skala_4" => "Pelaksana pelayanan menerapkan 4 (empat) unsur budaya pelayanan.",
+            "skala_5" => "Pelaksana pelayanan menerapkan 5 (lima) unsur budaya pelayanan.",
+            "indicator_bobot" => 0.3
         ]);
 
         Indicator::create([

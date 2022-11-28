@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('skala_3')->nullable();
             $table->string('skala_4')->nullable();
             $table->string('skala_5')->nullable();
-            $table->integer('indicator_bobot')->nullable();
+            $table->double('indicator_bobot')->nullable();
             $table->tinyInteger('aspect_id');
         });
     }

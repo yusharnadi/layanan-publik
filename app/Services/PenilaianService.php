@@ -2,13 +2,15 @@
 
 namespace App\Services;
 
-use App\Models\Evaluasi;
+use App\Models\Penilaian;
 use Illuminate\Support\Facades\DB;
 
-class EvaluasiService
+class PenilaianService
 {
     public function findById(int $id)
     {
+
+
         return  DB::table('evaluasis')
             ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname')
             ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id')
@@ -19,15 +21,15 @@ class EvaluasiService
 
     public function findActive(int $department_id, int $indicator_id, int $tahun, int $semester)
     {
-        return DB::table('evaluasis')
-            ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname', 'doc_1', 'doc_2', 'doc_3', 'doc_4')
-            ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id')
-            ->join('departments', 'departments.department_id', '=', 'evaluasis.department_id')
+        return DB::table('penilaians')
+            ->select('penilaians.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname', 'doc_1', 'doc_2', 'doc_3', 'doc_4')
+            ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
+            ->join('departments', 'departments.department_id', '=', 'penilaians.department_id')
             ->where('departments.department_id', $department_id)
-            ->where('evaluasis.indicator_id', $indicator_id)
-            ->where('evaluasis.tahun', $tahun)
-            ->where('evaluasis.semester', $semester)
-            ->orderBy('evaluasis.evaluasi_id', 'desc')
+            ->where('penilaians.indicator_id', $indicator_id)
+            ->where('penilaians.tahun', $tahun)
+            ->where('penilaians.semester', $semester)
+            ->orderBy('penilaians.penilaian_id', 'desc')
             ->first();
     }
 
@@ -39,11 +41,11 @@ class EvaluasiService
 
     public function insert(array $data): void
     {
-        Evaluasi::create($data);
+        Penilaian::create($data);
     }
 
     public function update(int $id, array $data): void
     {
-        Evaluasi::where('evaluasi_id', $id)->update($data);
+        Penilaian::where('penilaian_id', $id)->update($data);
     }
 }
