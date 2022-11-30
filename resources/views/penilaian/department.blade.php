@@ -27,7 +27,7 @@
                 <th style="width: 10px;">#</th>
                 <th style="width: 300px;">Aspek</th>
                 <th>Indikator</th>
-                <th>Status</th>
+                {{-- <th>Status</th> --}}
                 <th style="width: 60px;">#</th>
               </tr>
             </thead>
@@ -37,7 +37,7 @@
                     <td>{{$indicator->indicator_id}}</td>
                     <td>{{$indicator->aspect_name}}</td>
                     <td>{{$indicator->indicator_code . ' '.$indicator->indicator_name}}</td>
-                    <td>{!! isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
+                    {{-- <td>{!! isUploaded($indicator->indicator_id, $department->department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td> --}}
                     <td>
                         <a href="{{route('penilaian.detail', [$indicator->indicator_id, $department->department_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-arrow-right"></i></a>    
                     </td>

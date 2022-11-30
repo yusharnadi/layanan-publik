@@ -62,7 +62,7 @@ class IndicatorSeeder extends Seeder
             "skala_3" => "Tersedia publikasi SP seluruh komponen service delivery pada 2 media publikasi dan pada SIPP Nasional.",
             "skala_4" => "Tersedia publikasi SP seluruh komponen service delivery pada 3 media publikasi dan pada SIPP Nasional.",
             "skala_5" => "Tersedia publikasi SP seluruh komponen service delivery pada 4 atau lebih media publikasi dan pada SIPP Nasional.",
-            "indicator_bobot" => 0.7
+            "indicator_bobot" => 0.07
         ]);
 
         Indicator::create([
@@ -309,9 +309,15 @@ class IndicatorSeeder extends Seeder
             <li>Pelindung (Kanopi/atap bahan lain)</li>
             <li>Drive Thru.</li>
             </ol>",
-
             "doc_1" => "Foto tempat parkir dan seluruh fasilitas parkir yang ada.",
-            "aspect_id" => 3
+            "aspect_id" => 3,
+            "skala_0" => "Tidak tersedia tempat parkir.",
+            "skala_1" => "Tersedia tempat parkir dan memiliki 1 fasilitas parkir.",
+            "skala_2" => "Tersedia tempat parkir dan memiliki 2 fasilitas parkir.",
+            "skala_3" => "Tersedia tempat parkir dan memiliki 3 fasilitas parkir.",
+            "skala_4" => "Tersedia tempat parkir dan memiliki 4 fasilitas parkir.",
+            "skala_5" => "Tersedia tempat parkir dan memiliki 5 atau lebih fasilitas parkir.",
+            "indicator_bobot" => 0.15
         ]);
 
         Indicator::create([
@@ -332,9 +338,15 @@ class IndicatorSeeder extends Seeder
             <li>Air minum: disediakan air minum bagi pengguna layanan baik berupa kemasan atau galon.</li>
             <li>Hal-hal lainnya yang mendukung kenyamanan ruang tunggu.</li>
             </ol>",
-
             "doc_1" => "Foto / video ruang tunggu dan seluruh fasilitas ruang tunggu yang ada.",
-            "aspect_id" => 3
+            "aspect_id" => 3,
+            "skala_0" => "Tidak tersedia fasilitas apapun.",
+            "skala_1" => "Tersedia fasilitas wajib.",
+            "skala_2" => "Tersedia fasilitas wajib dan 1 fasilitas pelengkap.",
+            "skala_3" => "Tersedia fasilitas wajib dan 2 fasilitas pelengkap.",
+            "skala_4" => "Tersedia fasilitas wajib dan 3 fasilitas pelengkap.",
+            "skala_5" => "Tersedia fasilitas wajib dan 4 atau lebih fasilitas pelengkap.",
+            "indicator_bobot" => 0.23
         ]);
 
         Indicator::create([
@@ -350,9 +362,15 @@ class IndicatorSeeder extends Seeder
             <li>Monev intensitas petugas membersihkan toilet.</li>
             <li>Fasilitas lain yang mendukung.</li>
             </ol>",
-
             "doc_1" => "Foto / video toilet pengguna layanan dan seluruh fasilitas yang ada.",
-            "aspect_id" => 3
+            "aspect_id" => 3,
+            "skala_0" => "Tidak tersedia toilet pengguna layanan.",
+            "skala_1" => "Toilet pengguna layanan dengan 1 kondisi.",
+            "skala_2" => "Toilet pengguna layanan dengan 2 kondisi.",
+            "skala_3" => "Toilet pengguna layanan dengan 3 kondisi.",
+            "skala_4" => "Toilet pengguna layanan dengan 4 kondisi.",
+            "skala_5" => "Toilet pengguna layanan dengan lebih dari 5 atau lebih kondisi.",
+            "indicator_bobot" => 0.2
         ]);
 
         Indicator::create([

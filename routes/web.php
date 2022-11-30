@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EvaluasiController;
+use App\Http\Controllers\HasilController;
 use App\Http\Controllers\IndicatorController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenilaianController;
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/penilaian/{indicator_id}/detail/{department_id}/{tahun}/{semester}', [PenilaianController::class, 'penilaianDetail'])->name('penilaian.detail');
     Route::post('/penilaian/store', [PenilaianController::class, 'store'])->name('penilaian.store');
     Route::put('/penilaian/{penilaian_id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
+
+    Route::get('/hasil', [HasilController::class, 'index'])->name('hasil.index');
 
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');

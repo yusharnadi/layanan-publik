@@ -118,3 +118,24 @@ function getPercentage(int $department_id, int $tahun, int $semester): int
 
     return $result;
 }
+
+function getHasilPenilaian(int $department_id, int $tahun, int $semester, int $aspect_id)
+{
+    $hasil = 0;
+    $bobot_aspect = DB::table('aspects')->where('aspect_id', $aspect_id)->select('aspect_bobot')->first();
+    $bobot_indicator = DB::table('penilaians')
+        ->select('indicators.indicator_bobot', 'nilai')
+        ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
+        ->where('penilaians.tahun', $tahun)
+        ->where('penilaians.semester', $semester)
+        ->where('penilaians.department_id', $department_id)
+        ->where('indicators.aspect_id', $aspect_id)
+        ->get();
+
+    $nilai_indicator = 0;
+    foreach ($bobot_indicator as $value) {
+        $nilai_indicator += $value->indicator_bobot * $value->nilai;
+    }
+
+    return $nilai_indicator * $bobot_aspect->aspect_bobot;
+}

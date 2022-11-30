@@ -34,6 +34,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update penilaian']);
         Permission::create(['name' => 'delete penilaian']);
 
+        Permission::create(['name' => 'read hasil penilaian']);
+        Permission::create(['name' => 'create hasil penilaian']);
+        Permission::create(['name' => 'update hasil penilaian']);
+        Permission::create(['name' => 'delete hasil penilaian']);
+
         Permission::create(['name' => 'read laporan']);
         Permission::create(['name' => 'create laporan']);
         Permission::create(['name' => 'update laporan']);
@@ -77,6 +82,7 @@ class PermissionSeeder extends Seeder
                 'read monev', 'create monev', 'update monev', 'delete monev',
                 'read laporan', 'create laporan', 'update laporan', 'delete laporan',
                 'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian',
+                'read hasil penilaian', 'create hasil penilaian', 'update hasil penilaian', 'delete hasil penilaian',
                 'read rencana', 'create rencana', 'update rencana', 'delete rencana',
                 'read tindak', 'create tindak', 'update tindak', 'delete tindak',
                 'read aspect', 'create aspect', 'update aspect',
@@ -88,7 +94,7 @@ class PermissionSeeder extends Seeder
             [
                 'read monev',
                 'read laporan',
-                'read penilaian',
+                'read hasil penilaian',
                 'read rencana',
                 'read tindak',
                 'read indicator',
@@ -107,7 +113,7 @@ class PermissionSeeder extends Seeder
         );
 
         $user = Role::create(['name' => 'User']);
-        $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev', 'read rencana', 'create rencana', 'update rencana', 'read tindak', 'create tindak', 'update tindak']);
+        $user->syncPermissions(['read laporan', 'create laporan', 'update laporan', 'read monev', 'read rencana', 'create rencana', 'update rencana', 'read tindak', 'create tindak', 'update tindak', 'read hasil penilaian']);
 
         $role = Role::create(['name' => 'Administrator']);
         $role->givePermissionTo(Permission::all());
