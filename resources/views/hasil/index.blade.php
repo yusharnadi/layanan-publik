@@ -26,7 +26,7 @@
               <tr>
                 <th style="width: 10px;">ID</th>
                 <th>Aspect</th>
-                <th>Hasil Penilaian</th>
+                <th style="width:170px;">Hasil Penilaian</th>
                 <th style="width: 20px;">#</th>
               </tr>
             </thead>
@@ -38,10 +38,14 @@
                     <td>{{getHasilPenilaian($department_id, $tahun, $semester, $aspect->aspect_id)}}</td>
                     <td>
                         {{-- <a href="{{route('penilaian.department', [$department->department_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a> --}}
-                        {{-- <a href="{{route('department.delete', $department->department_id)}}" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
+                        <a href="{{route('hasil.aspect_detail', [$aspect->aspect_id, $department_id, $tahun, $semester])}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
                     </td>
                 </tr>
             @endforeach
+                <tr>
+                  <th colspan="2" class="text-right">Total</th>
+                  <th>{{getTotalPenilaian($department_id, $tahun, $semester)}}</th>
+                </tr>
             </tbody>
           </table>
         </div>

@@ -25,6 +25,11 @@ class IndicatorService
         return Indicator::find($id);
     }
 
+    public function findByAspectId(int $aspect_id)
+    {
+        return Indicator::where('aspect_id', $aspect_id)->get();
+    }
+
     public function update(array $data, int $id): int
     {
         return Indicator::where('indicator_id', $id)->update($data);

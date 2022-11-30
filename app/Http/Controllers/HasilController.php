@@ -8,6 +8,7 @@ use App\Services\IndicatorService;
 use App\Services\PenilaianService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use tidy;
 
 class HasilController extends Controller
 {
@@ -41,5 +42,13 @@ class HasilController extends Controller
         // dd(getHasilPenilaian($department_id, $tahun, $semester, 1));
         $departments = $this->departmentService->findAll();
         return view('hasil.index_admin', ['departments' => $departments, 'tahun' => $tahun, 'semester' => $semester, 'department_id' => $department_id, 'aspects' => $aspects]);
+    }
+
+    public function aspectDetail(int $aspect_id, int $department_id, int $tahun, int $semester)
+    {
+        $indicators = $this->indicatorService->findByAspectId($aspect_id);
+        $department = $this->departmentService->findById($department_id);
+        // dd(getNilaiIndicator($department_id, $tahun, $semester, 1));
+        return view('hasil.aspect_detail', ['tahun' => $tahun, 'semester' => $semester, 'department' => $department, 'indicators' => $indicators]);
     }
 }

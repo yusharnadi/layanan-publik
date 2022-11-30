@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/penilaian/{penilaian_id}/update', [PenilaianController::class, 'update'])->name('penilaian.update');
 
     Route::get('/hasil', [HasilController::class, 'index'])->name('hasil.index');
+    Route::get('/hasil/{aspect_id}/{department_id}/{tahun}/{semester}/aspect/detail', [HasilController::class, 'aspectDetail'])->name('hasil.aspect_detail');
 
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');

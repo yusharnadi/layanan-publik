@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Aspect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -121,7 +122,6 @@ function getPercentage(int $department_id, int $tahun, int $semester): int
 
 function getHasilPenilaian(int $department_id, int $tahun, int $semester, int $aspect_id)
 {
-    $hasil = 0;
     $bobot_aspect = DB::table('aspects')->where('aspect_id', $aspect_id)->select('aspect_bobot')->first();
     $bobot_indicator = DB::table('penilaians')
         ->select('indicators.indicator_bobot', 'nilai')
@@ -138,4 +138,29 @@ function getHasilPenilaian(int $department_id, int $tahun, int $semester, int $a
     }
 
     return $nilai_indicator * $bobot_aspect->aspect_bobot;
+}
+function getNilaiIndicator(int $department_id, int $tahun, int $semester, int $indicator_id)
+{
+    $query = DB::table('penilaians')
+        ->select('nilai')
+        ->where('penilaians.tahun', $tahun)
+        ->where('penilaians.semester', $semester)
+        ->where('penilaians.department_id', $department_id)
+        ->where('penilaians.indicator_id', $indicator_id)
+        ->first();
+    if ($query) {
+        return $query->nilai;
+    }
+
+    return "-";
+}
+
+function getTotalPenilaian(int $department_id, int $tahun, int $semester)
+{
+    $aspects = Aspect::all();
+    $total = 0;
+    foreach ($aspects as $aspect) {
+        $total += getHasilPenilaian($department_id, $tahun, $semester, $aspect->aspect_id);
+    }
+    return $total;
 }
