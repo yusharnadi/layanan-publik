@@ -1,13 +1,13 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="{{route('dashboard')}}"><img class="mr-1" src="{{asset('assets/img/logo-skw-150.png')}}" alt="Logo Pemkot Singkawang" srcset="" height="50px">
+      <a href="{{route('dashboard')}}"><img class="mr-1" src="{{asset('assets/img/logo-yanlik.jpeg')}}" alt="Logo Pemkot Singkawang" srcset="" height="50px">
         {{config('app.name')}}
       </a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="{{route('dashboard')}}">
-        <img src="{{asset('assets/img/logo-skw-150.png')}}" alt="Logo Pemkot" srcset="" height="50px">
+        <img src="{{asset('assets/img/logo-yanlik.jpeg')}}" alt="Logo Pemkot" srcset="" height="50px">
       </a>
     </div>
     <ul class="sidebar-menu">

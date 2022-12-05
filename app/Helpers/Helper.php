@@ -130,6 +130,7 @@ function getHasilPenilaian(int $department_id, int $tahun, int $semester, int $a
         ->where('penilaians.semester', $semester)
         ->where('penilaians.department_id', $department_id)
         ->where('indicators.aspect_id', $aspect_id)
+        ->where('penilaians.status', 4)
         ->get();
 
     $nilai_indicator = 0;
@@ -147,6 +148,7 @@ function getNilaiIndicator(int $department_id, int $tahun, int $semester, int $i
         ->where('penilaians.semester', $semester)
         ->where('penilaians.department_id', $department_id)
         ->where('penilaians.indicator_id', $indicator_id)
+        ->where('penilaians.status', 4)
         ->first();
     if ($query) {
         return $query->nilai;

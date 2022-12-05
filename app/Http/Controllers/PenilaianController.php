@@ -71,9 +71,13 @@ class PenilaianController extends Controller
             $request->semester
         ];
 
+        $postParams = $request->safe()->except(['_token']);
+        $postParams['status'] = 1;
+
+
         try {
 
-            $this->penilaianService->insert($request->safe()->except(['_token']));
+            $this->penilaianService->insert($postParams);
 
             return redirect()->route('penilaian.department', $routeParam)->with('message', "Berhasil menambahkan Penilaian");
         } catch (\Exception $th) {

@@ -57,7 +57,11 @@
                 <tr>
                     <td>Dokumen #2</td>
                     <td>
-                        <a href="{{asset('uploads/'.$laporan->file_2)}}" target="_blank">{{$laporan->doc_2}}</a>
+                      @if ($laporan->file_2)
+                        <a href="{{asset('uploads/'.$laporan->file_2)}}" target="_blank">{{$laporan->doc_2}}</a>   
+                      @else
+                         -  
+                      @endif
                     </td>
                 </tr>
                 @endif
@@ -65,7 +69,11 @@
                 <tr>
                     <td>Dokumen #3</td>
                     <td>
+                      @if ($laporan->file_3)
                         <a href="{{asset('uploads/'.$laporan->file_3)}}" target="_blank">{{$laporan->doc_3}}</a>
+                      @else
+                        -    
+                      @endif
                     </td>
                 </tr>
                 @endif
@@ -73,7 +81,11 @@
                 <tr>
                     <td>Dokumen #4</td>
                     <td>
-                        <a href="{{asset('uploads/'.$laporan->file_4)}}" target="_blank">{{$laporan->doc_4}}</a>
+                      @if ($laporan->file_4)
+                        <a href="{{asset('uploads/'.$laporan->file_4)}}" target="_blank">{{$laporan->doc_4}}</a>   
+                      @else
+                          - 
+                      @endif
                     </td>
                 </tr>
                 @endif

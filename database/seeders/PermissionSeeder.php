@@ -39,6 +39,11 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update hasil penilaian']);
         Permission::create(['name' => 'delete hasil penilaian']);
 
+        Permission::create(['name' => 'read verifikasi penilaian']);
+        Permission::create(['name' => 'create verifikasi penilaian']);
+        Permission::create(['name' => 'update verifikasi penilaian']);
+        Permission::create(['name' => 'delete verifikasi penilaian']);
+
         Permission::create(['name' => 'read laporan']);
         Permission::create(['name' => 'create laporan']);
         Permission::create(['name' => 'update laporan']);
@@ -83,6 +88,7 @@ class PermissionSeeder extends Seeder
                 'read laporan', 'create laporan', 'update laporan', 'delete laporan',
                 'read penilaian', 'create penilaian', 'update penilaian', 'delete penilaian',
                 'read hasil penilaian', 'create hasil penilaian', 'update hasil penilaian', 'delete hasil penilaian',
+                'read verifikasi penilaian', 'create verifikasi penilaian', 'update verifikasi penilaian', 'delete verifikasi penilaian',
                 'read rencana', 'create rencana', 'update rencana', 'delete rencana',
                 'read tindak', 'create tindak', 'update tindak', 'delete tindak',
                 'read aspect', 'create aspect', 'update aspect',
@@ -106,7 +112,7 @@ class PermissionSeeder extends Seeder
             [
                 'read monev',
                 'read laporan',
-                'read penilaian', 'update penilaian',
+                'read verifikasi penilaian', 'create verifikasi penilaian', 'update verifikasi penilaian', 'delete verifikasi penilaian',
                 'read rencana',
                 'read tindak',
             ]
