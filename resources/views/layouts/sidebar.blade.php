@@ -37,6 +37,10 @@
       <li class="{{set_active('penilaian.*')}}"><a class="nav-link" href="{{ route('penilaian.index') }}"><i class="fas fa-poll"></i><span>Penilaian </span></a></li>
       @endcan
 
+      @can("read verifikasi penilaian")
+      <li class="{{set_active('verifikasi.*')}}"><a class="nav-link" href="{{ route('verifikasi.index') }}"><i class="fas fa-file-signature"></i><span>Verifikasi Penilaian </span></a></li>
+      @endcan
+
       @can("read hasil penilaian")
       <li class="{{set_active('hasil.*')}}"><a class="nav-link" href="{{ route('hasil.index') }}"><i class="fas fa-sort-alpha-up"></i><span>Hasil Penilaian </span></a></li>
       @endcan

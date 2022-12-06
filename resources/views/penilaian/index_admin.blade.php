@@ -13,7 +13,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body table-responsive">
-          <form method="get" action="{{route('laporan.index')}}">
+          <form method="get" action="{{route('penilaian.index')}}">
             <div class="row mt-4">
               <div class="form-group col-sm-2">
                 <label for="tahun">Tahun</label>

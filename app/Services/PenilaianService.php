@@ -9,8 +9,6 @@ class PenilaianService
 {
     public function findById(int $id)
     {
-
-
         return  DB::table('evaluasis')
             ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname')
             ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id')
@@ -47,5 +45,19 @@ class PenilaianService
     public function update(int $id, array $data): void
     {
         Penilaian::where('penilaian_id', $id)->update($data);
+    }
+
+    public function findAllActive(int $department_id, int $tahun, int $semester)
+    {
+        return DB::table('penilaians')
+            ->select('penilaians.*', 'indicator_name', 'department_name', 'department_fullname', 'aspect_name')
+            ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
+            ->join('aspects', 'aspects.aspect_id', '=', 'indicators.aspect_id')
+            ->join('departments', 'departments.department_id', '=', 'penilaians.department_id')
+            ->where('departments.department_id', $department_id)
+            ->where('penilaians.tahun', $tahun)
+            ->where('penilaians.semester', $semester)
+            ->orderBy('penilaians.indicator_id', 'asc')
+            ->get();
     }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\RencanaAksiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TindakController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerifikasiPenilaianController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/hasil', [HasilController::class, 'index'])->name('hasil.index');
     Route::get('/hasil/{aspect_id}/{department_id}/{tahun}/{semester}/aspect/detail', [HasilController::class, 'aspectDetail'])->name('hasil.aspect_detail');
+
+    Route::get('/verifikasi-penilaian', [VerifikasiPenilaianController::class, 'index'])->name('verifikasi.index');
 
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');

@@ -8,7 +8,6 @@ use App\Services\IndicatorService;
 use App\Services\PenilaianService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use tidy;
 
 class HasilController extends Controller
 {
