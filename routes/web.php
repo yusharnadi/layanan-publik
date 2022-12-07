@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/hasil/{aspect_id}/{department_id}/{tahun}/{semester}/aspect/detail', [HasilController::class, 'aspectDetail'])->name('hasil.aspect_detail');
 
     Route::get('/verifikasi-penilaian', [VerifikasiPenilaianController::class, 'index'])->name('verifikasi.index');
+    Route::get('/verifikasi-penilaian/{penilaian_id}/detail', [VerifikasiPenilaianController::class, 'detail'])->name('verifikasi.detail');
 
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');

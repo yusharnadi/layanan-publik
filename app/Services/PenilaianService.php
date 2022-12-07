@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class PenilaianService
 {
-    public function findById(int $id)
+    public function findById(int $penilaian_id)
     {
-        return  DB::table('evaluasis')
-            ->select('evaluasis.*', 'indicator_name', 'indicator_description', 'department_name', 'department_fullname')
-            ->join('indicators', 'indicators.indicator_id', '=', 'evaluasis.indicator_id')
-            ->join('departments', 'departments.department_id', '=', 'evaluasis.department_id')
-            ->where('evaluasis.evaluasi_id', $id)
+        return DB::table('penilaians')
+            ->select('penilaians.*', 'indicators.*', 'department_name', 'department_fullname')
+            ->join('indicators', 'indicators.indicator_id', '=', 'penilaians.indicator_id')
+            ->join('departments', 'departments.department_id', '=', 'penilaians.department_id')
+            ->where('penilaians.penilaian_id', $penilaian_id)
             ->first();
     }
 

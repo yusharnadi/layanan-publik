@@ -72,13 +72,13 @@
                             <span class="badge badge-danger">Tinjau Ulang</span>
                         @elseif($penilaian->status == 3)
                             <span class="badge badge-warning">Sudah Revisi</span>
-                        @else()
+                        @else
                             <span class="badge badge-success">Disetujui</span>
                         @endif
                     </td>
                     <td>
-                        <a href="#" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
-                        <a href="#" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{route('verifikasi.detail', $penilaian->penilaian_id)}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-arrow-right"></i></a>
+                        {{-- <a href="#" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
                     </td>
                 </tr>
             @endforeach
