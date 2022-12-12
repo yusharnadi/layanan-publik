@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VerifikasiUpdateRequest;
 use App\Services\AspectService;
 use App\Services\DepartmentService;
 use App\Services\EvaluasiService;
@@ -12,6 +13,7 @@ use App\Services\RencanaService;
 use App\Services\TindakService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class VerifikasiPenilaianController extends Controller
 {
@@ -42,6 +44,8 @@ class VerifikasiPenilaianController extends Controller
 
     public function detail(int $penilaian_id)
     {
+        if (!Auth::user()->can('read verifikasi penilaian')) abort(403);
+
         $penilaian = $this->penilaianService->findById($penilaian_id);
 
         if (!$penilaian) {
@@ -53,7 +57,7 @@ class VerifikasiPenilaianController extends Controller
         $rencana = $this->rencanaService->findActive($penilaian->department_id, $penilaian->indicator_id, $penilaian->tahun, $penilaian->semester);
         $tindak = $this->tindakService->findActive($penilaian->department_id, $penilaian->indicator_id, $penilaian->tahun, $penilaian->semester);
 
-        // dd($penilaian);
+
         return view('verifikasi.detail', [
             'penilaian' => $penilaian,
             'laporan' => $laporan,
@@ -61,5 +65,27 @@ class VerifikasiPenilaianController extends Controller
             'rencana' => $rencana,
             'tindak' => $tindak
         ]);
+    }
+
+    public function update(VerifikasiUpdateRequest $request, int $penilaian_id)
+    {
+
+        if (!Auth::user()->can('create verifikasi penilaian')) abort(403);
+
+        $routeParam = [
+            'department_id' => $request->department_id,
+            'tahun' => $request->tahun,
+            'semester' => $request->semester
+        ];
+
+        try {
+
+            $this->penilaianService->update($penilaian_id, $request->safe()->except('_token'));
+
+            return redirect()->route('verifikasi.index', $routeParam)->with('message', "Berhasil Memverifikasi Penilaian");
+        } catch (\Exception $th) {
+            Log::error($th->getMessage(), ['form_data' => $request->except(['_token'])]);
+            return redirect()->route('verifikasi.index', $routeParam)->with('error', "Gagal Memverifikasi Penilaian");
+        }
     }
 }

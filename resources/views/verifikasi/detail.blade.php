@@ -172,12 +172,14 @@
                 <tr>
                     <td style="width: 150px">Status Tindak Lanjut</td>
                     <td>
-                      @if ($tindak->status_tindak == 1)
+                      @if ($tindak && $tindak->status_tindak == 1)
                         Belum Dilaksanakan
-                      @elseif($tindak->status_tindak == 2)
+                      @elseif($tindak && $tindak->status_tindak == 2)
                         Sedang Proses
-                      @else
+                      @elseif($tindak && $tindak->status_tindak == 3)
                         Sudah Dilaksanakan
+                      @else
+                        - 
                       @endif
                   </td>
                 </tr>
@@ -232,27 +234,55 @@
                 </tr>
             </tbody>
           </table>
+          <form action="{{route('verifikasi.update', $penilaian->penilaian_id)}}" method="post">
+            @csrf
+            <input type="hidden" name="department_id" value="{{$penilaian->department_id}}">
+            <input type="hidden" name="tahun" value="{{$penilaian->tahun}}">
+            <input type="hidden" name="semester" value="{{$penilaian->semester}}">
+            <div class="form-group">
+              <label>Verifikasi Hasil Penilaian</label>
+              <div class="col-md-12">
+                  <input type="radio" name="status" value="4" @checked($penilaian->status == 4) required> Disetujui
+              </div>
+              <div class="col-md-12">
+                  <input type="radio" name="status" value="2" @checked($penilaian->status == 2) required> Perlu Ditinjau Kembali
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Keterangan</label>
+              <textarea name="keterangan" id="keterangan" class="form-control" style="height: 100px" required>{{old('keterangan') ?? $penilaian->keterangan}}</textarea>
+            </div>
+            <div class="form-group">
+              <a href="{{route('verifikasi.index', ['department_id' => $penilaian->department_id, 'tahun'=> $penilaian->tahun, 'semester'=> $penilaian->semester])}}" class=" btn btn-info btn-icon"><i class="fas fa-arrow-left"></i> Kembali</a>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 @endsection
 @push('css-datatables')
-<link rel="stylesheet" href="{{asset('assets/modules/DataTables/dt/css/dataTables.bootstrap4.min.css')}}">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
 @endpush
 @push('datatables-js')
-<script src="{{asset('assets/modules/DataTables/dt/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/modules/DataTables/dt/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 <script>
   $(document).ready( function () {
-      // Select2
-      if(jQuery().select2) {
-        $(".select2").select2();
-      }
 
-      $('.datatable').DataTable();
+      $('#keterangan').summernote({
+        placeholder: 'Keterangan',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['view', [, 'codeview']]
+        ]
+      });
     });
 </script>
 @endpush

@@ -49,6 +49,14 @@
                
             </tbody>
         </table>
+        @if (isset($penilaian->keterangan))
+        <div class="form-group">
+          <label>Hasil Verifikasi Penilaian</label>
+          <div class="col-md-12">
+              <p>{!!$penilaian->keterangan!!}</p>
+          </div>
+        </div>
+        @endif
         @if (isset($penilaian))
           <form action="{{route('penilaian.update', $penilaian->penilaian_id)}}" method="post">
             @csrf
@@ -57,6 +65,7 @@
             <input type="hidden" name="department_id" value="{{$department->department_id}}">
             <input type="hidden" name="tahun" value="{{$tahun}}">
             <input type="hidden" name="semester" value="{{$semester}}">
+            <input type="hidden" name="status" value="{{$penilaian->status}}">
             <div class="form-group">
                 <label>Penilaian</label>
                 <div class="col-md-12">

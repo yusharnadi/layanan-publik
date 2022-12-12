@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/verifikasi-penilaian', [VerifikasiPenilaianController::class, 'index'])->name('verifikasi.index');
     Route::get('/verifikasi-penilaian/{penilaian_id}/detail', [VerifikasiPenilaianController::class, 'detail'])->name('verifikasi.detail');
+    Route::post('/verifikasi-penilaian/{penilaian_id}/update', [VerifikasiPenilaianController::class, 'update'])->name('verifikasi.update');
 
 
     Route::get('/evaluasi', [EvaluasiController::class, 'index'])->name('evaluasi.index');

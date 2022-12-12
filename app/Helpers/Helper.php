@@ -166,3 +166,20 @@ function getTotalPenilaian(int $department_id, int $tahun, int $semester)
     }
     return $total;
 }
+
+function getVerifiedStatus(int $department_id, int $tahun, int $semester, int $indicator_id)
+{
+    $query = DB::table('penilaians')
+        ->select('status')
+        ->where('penilaians.tahun', $tahun)
+        ->where('penilaians.semester', $semester)
+        ->where('penilaians.department_id', $department_id)
+        ->where('penilaians.indicator_id', $indicator_id)
+        ->first();
+
+    if (!$query) {
+        return 0;
+    }
+
+    return $query->status;
+}

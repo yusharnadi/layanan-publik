@@ -96,10 +96,14 @@ class PenilaianController extends Controller
             $request->semester
         ];
 
+        $postParams = $request->safe()->except(['_token']);
+        if ($request->status == 2) {
+            $postParams['status'] = 3;
+        }
 
         try {
 
-            $this->penilaianService->update($id, $request->safe()->except(['_token']));
+            $this->penilaianService->update($id, $postParams);
 
             return redirect()->route('penilaian.department', $routeParam)->with('message', "Berhasil mengubah Penilaian");
         } catch (\Exception $th) {
