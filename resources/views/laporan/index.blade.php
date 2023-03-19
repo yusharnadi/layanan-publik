@@ -31,6 +31,7 @@
                     <td>{!! isUploaded($indicator->indicator_id, $department_id, $tahun, $semester) ? '<span class="badge badge-success">Sudah Upload</span>' : '<span class="badge badge-secondary">Belum Upload</span>'!!}</td>
                     <td>
                       @if ($laporan = isUploaded($indicator->indicator_id, $department_id, $tahun, $semester) )
+                        <a href="{{route('laporan.view', $laporan->laporan_id)}}" class="btn btn-icon btn-sm btn-info"><i class="fas fa-eye"></i></a>    
                         <a href="{{route('laporan.edit', $laporan->laporan_id)}}" class="btn btn-icon btn-sm btn-warning"><i class="fas fa-edit"></i></a>    
                       @else
                         <a href="{{route('laporan.create', $indicator->indicator_id)}}" class="btn btn-icon btn-sm btn-primary"><i class="fas fa-plus"></i></a>

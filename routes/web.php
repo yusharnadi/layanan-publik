@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/laporan/{id}/create', [LaporanController::class, 'create'])->name('laporan.create');
     Route::post('/laporan/{id}/store', [LaporanController::class, 'store'])->name('laporan.store');
     Route::get('/laporan/{id}/edit', [LaporanController::class, 'edit'])->name('laporan.edit');
+    Route::get('/laporan/{id}/view', [LaporanController::class, 'view'])->name('laporan.view');
     Route::put('/laporan/{id}/update', [LaporanController::class, 'update'])->name('laporan.update');
     Route::get('/laporan/{id}/department/{tahun}/{semester}', [LaporanController::class, 'laporanDepartment'])->name('laporan.department');
     Route::get('/laporan/{id}/detail', [LaporanController::class, 'laporanDetail'])->name('laporan.detail');

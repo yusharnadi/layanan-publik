@@ -69,6 +69,19 @@ class LaporanController extends Controller
         }
     }
 
+    public function view(int $id)
+    {
+        if (!Auth::user()->can('read laporan')) abort(403);
+
+        $laporan = $this->laporanService->findById($id);
+
+        if ($laporan == null) {
+            abort(404);
+        }
+
+        return view('laporan.view', ['laporan' => $laporan]);
+    }
+
     public function edit(int $id)
     {
         if (!Auth::user()->can('update laporan')) abort(403);
